@@ -1,0 +1,14 @@
+PODS:
+  - KLSingleton (1.0.0)
+
+DEPENDENCIES:
+  - KLSingleton (from `https://github.com/kevinlawler/KLSingleton`)
+
+EXTERNAL SOURCES:
+  KLSingleton:
+    :git: https://github.com/kevinlawler/KLSingleton
+
+SPEC CHECKSUMS:
+  KLSingleton: e454c6022ed9b55aed8abb7a8e8c053deb6240b8
+
+COCOAPODS: 0.29.0
