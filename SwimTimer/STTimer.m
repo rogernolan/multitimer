@@ -7,6 +7,8 @@
 //
 
 #import "STTimer.h"
+#import "NSArray+map.h"
+
 
 @interface STTimer () {
 
@@ -15,19 +17,37 @@
 @property (strong, nonatomic) NSDate* startTime;                  // Time we were started
 @property (strong, nonatomic) NSDate* stopTime;                   // most recent stop time
 @property (nonatomic) NSTimeInterval stopTimeReading;     // number of seconds when we were stopped
-@property (nonatomic) NSTimeInterval lapTime;
+@property (nonatomic) NSMutableArray* lapTimes;
 @property (nonatomic) NSTimeInterval pausedTime;          // How long we have been stopped.
 
 @end
 
+NSString* timeStringFor(NSTimeInterval aNumberOfSeconds){
+    
+    NSInteger totalSeconds = aNumberOfSeconds;
+    NSInteger cents = (100 * aNumberOfSeconds) - (100 * totalSeconds);
+    
+    NSInteger days = totalSeconds / (60 * 60 * 24);
+    totalSeconds -= days * (60 * 60 * 24);
+    NSInteger hours = totalSeconds / (60 * 60);
+    totalSeconds -= hours * (60 * 60);
+    NSInteger minutes = totalSeconds / 60;
+    totalSeconds -= minutes * 60;
+    
+    
+    return [NSString stringWithFormat:@"%02ld:%02ld:%02ld", minutes, totalSeconds, cents];
+    
+}
+
+
 @implementation STTimer
 
 - (void)reset; {
+    _lapTimes = [NSMutableArray arrayWithCapacity:4];
     _startTime = nil;
     _stopTime = nil;
     _stopTimeReading = 0.0;
     _pausedTime = 0.0;
-    _lapTime = 0;
 }
 
 -(void)start;{
@@ -40,6 +60,10 @@
     if(!_startTime) {
         _startTime = [NSDate date];
     }
+    
+    if(!_lapTimes)
+        _lapTimes = [NSMutableArray arrayWithCapacity:4];
+
 }
 
 -(void)stop; {
@@ -50,20 +74,25 @@
 }
 
 -(void)lap; {
-    _lapTime = [self currentRunTime];
+    [_lapTimes addObject: @([self currentRunTime])];
+    if([_lapTimes count] > 4) {
+        [_lapTimes removeObjectAtIndex:0];
+    }
 }
 
 -(NSString*)timeString;{
     if(_stopTime) {
-        return [self timeStringFor:_stopTimeReading];
+        return timeStringFor(_stopTimeReading);
     }
     else
-        return [self timeStringFor:[self currentRunTime]];
+        return timeStringFor([self currentRunTime]);
     
 }
 
--(NSString*)lapString;{
-    return [self timeStringFor:_lapTime];
+-(NSArray*)lapStrings;{
+    return [_lapTimes mapObjectsUsingBlock:^id(id obj, NSUInteger idx) {
+        return timeStringFor([obj floatValue]);
+    }];
 }
 
 
@@ -71,22 +100,7 @@
     return [[NSDate date] timeIntervalSinceDate:_startTime] - _pausedTime;
 }
 
-- (NSString*)timeStringFor:(NSTimeInterval) aNumberOfSeconds{
-    
-    NSInteger totalSeconds = aNumberOfSeconds;
-    NSInteger cents = (100 * aNumberOfSeconds) - (100 * totalSeconds);
-    
-    NSInteger days = totalSeconds / (60 * 60 * 24);
-    totalSeconds -= days * (60 * 60 * 24);
-    NSInteger hours = totalSeconds / (60 * 60);
-    totalSeconds -= hours * (60 * 60);
-    NSInteger minutes = totalSeconds / 60;
-    totalSeconds -= minutes * 60;
 
-
-    return [NSString stringWithFormat:@"%02d:%02d:%02d:%02d", hours, minutes, totalSeconds, cents];
-    
-}
 
 - (BOOL)isRunning; {
     return _startTime && (_stopTime == nil);

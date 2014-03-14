@@ -15,5 +15,5 @@
 -(void)stop;
 -(void)lap;
 -(NSString*)timeString;
--(NSString*)lapString;
+-(NSArray*)lapStrings;
 @end

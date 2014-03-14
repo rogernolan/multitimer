@@ -27,7 +27,10 @@
 
 -(void)updateTick:(NSTimer*)aTimer; {
     _timerLabel.text = [_myTimer timeString];
-    _lapLabel.text = [_myTimer lapString];
+    NSArray* labels = _lapLabels;
+    [[_myTimer lapStrings] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        ((UILabel*)labels[idx]).text = obj;
+    }];
 }
 
 -(void)stopUpdatingUI; {
@@ -71,8 +74,12 @@
         [_myTimer reset];
         [_startStopButton setTitle:NSLocalizedString(@"Start", @"Start timer") forState:UIControlStateNormal];
         [_lapButton setTitle:NSLocalizedString(@"Lap", @"Lap button") forState:UIControlStateNormal];
-        _timerLabel.text = @"00:00:00:00";
-        _lapLabel.text =  @"00:00:00:00";
+        _timerLabel.text = @"00:00:00";
+        [_lapLabels enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            ((UILabel*) obj).text = @"00:00:00";
+
+        }];
     }
 }
+
 @end

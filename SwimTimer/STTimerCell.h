@@ -10,7 +10,9 @@
 
 @interface STTimerCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
-@property (weak, nonatomic) IBOutlet UILabel *lapLabel;
+@property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *lapLabels;
+
+
 @property (weak, nonatomic) IBOutlet UIButton *startStopButton;
 @property (weak, nonatomic) IBOutlet UIButton *lapButton;
 
