@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface STTimer : NSObject
+
+@property (strong, nonatomic) NSString* name;
 - (BOOL)isRunning; 
 - (void)reset;
 -(void)start;
