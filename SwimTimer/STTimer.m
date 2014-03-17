@@ -42,6 +42,42 @@ NSString* timeStringFor(NSTimeInterval aNumberOfSeconds){
 
 @implementation STTimer
 
+-(void)start;{
+    if(_stopTime){
+        [self willChangeValueForKey:@"running"];
+        NSDate* now = [NSDate date];
+        _pausedTime += [now timeIntervalSinceDate:_stopTime];
+        _stopTime = nil;
+        [self didChangeValueForKey:@"running"];
+    } else if(!_startTime) {
+        [self willChangeValueForKey:@"running"];
+        _startTime = [NSDate date];
+        [self didChangeValueForKey:@"running"];
+        
+    }
+    
+    if(!_lapTimes)
+        _lapTimes = [NSMutableArray arrayWithCapacity:4];
+    
+}
+
+-(void)stop; {
+    if(!_stopTime){
+        [self willChangeValueForKey:@"running"];
+        _stopTime = [NSDate date];
+        _stopTimeReading = [self currentRunTime];
+        [self didChangeValueForKey:@"running"];
+        
+    }
+}
+
+- (void)toggle;{
+    if([self isRunning])
+        [self stop];
+    else
+        [self start];
+}
+
 - (void)reset; {
     _lapTimes = [NSMutableArray arrayWithCapacity:4];
     _startTime = nil;
@@ -50,28 +86,6 @@ NSString* timeStringFor(NSTimeInterval aNumberOfSeconds){
     _pausedTime = 0.0;
 }
 
--(void)start;{
-    if(_stopTime){
-        NSDate* now = [NSDate date];
-        _pausedTime += [now timeIntervalSinceDate:_stopTime];
-        _stopTime = nil;
-    }
-    
-    if(!_startTime) {
-        _startTime = [NSDate date];
-    }
-    
-    if(!_lapTimes)
-        _lapTimes = [NSMutableArray arrayWithCapacity:4];
-
-}
-
--(void)stop; {
-    if(!_stopTime){
-        _stopTime = [NSDate date];
-        _stopTimeReading = [self currentRunTime];
-    }
-}
 
 -(void)lap; {
     [_lapTimes addObject: @([self currentRunTime])];
@@ -101,8 +115,8 @@ NSString* timeStringFor(NSTimeInterval aNumberOfSeconds){
 }
 
 
-
 - (BOOL)isRunning; {
     return _startTime && (_stopTime == nil);
 }
+
 @end

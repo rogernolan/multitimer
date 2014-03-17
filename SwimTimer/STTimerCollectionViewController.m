@@ -9,6 +9,7 @@
 #import "STTimerCollectionViewController.h"
 #import "STTimerCell.h"
 #import "STTimerHeader.h"
+#import "STStopWatch.h"
 
 @interface STTimerCollectionViewController ()
 
@@ -61,7 +62,8 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath;{
     
     STTimerCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"STTimerCell" forIndexPath:indexPath];
-    [cell configure];
+    STTimer* newTimer = [[STStopWatch instance] newTimer];
+    [cell setTimer:newTimer];
     return cell;
 }
 
@@ -78,5 +80,15 @@
     return CGSizeMake(0.0, 0.0);
 }
 
+#pragma mark actions from Storboard
+
+- (IBAction)startAllPressed:(id)sender;{
+    [[STStopWatch instance] startAll];
+}
+
+- (IBAction)resetAllPressed:(id)sender;{
+    [[STStopWatch instance] resetAll];
+
+}
 
 @end

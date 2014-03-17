@@ -106,7 +106,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vKD-9j-pm3">
-                                            <rect key="frame" x="7" y="81" width="69" height="57"/>
+                                            <rect key="frame" x="0.0" y="81" width="76" height="57"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Start">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -116,7 +116,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tac-MP-zUx">
-                                            <rect key="frame" x="79" y="80" width="68" height="58"/>
+                                            <rect key="frame" x="79" y="80" width="76" height="58"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Reset">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -149,6 +149,9 @@
                                     <state key="normal" title="Start All">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="startAllPressed:" destination="uBP-jF-j0E" eventType="touchUpInside" id="5JB-RC-SBi"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aec-aa-dC1">
                                     <rect key="frame" x="229" y="30" width="66" height="30"/>
@@ -156,6 +159,9 @@
                                     <state key="normal" title="Reset All">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="resetAllPressed:" destination="uBP-jF-j0E" eventType="touchUpInside" id="fMm-ff-10S"/>
+                                    </connections>
                                 </button>
                             </subviews>
                         </collectionReusableView>

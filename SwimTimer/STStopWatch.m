@@ -42,6 +42,13 @@
     }];
 }
 
+- (void)resetAll;{
+    [_timers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        STTimer* timer = (STTimer*)obj;
+        [timer reset];
+    }];
+}
+
 - (void)stopAll; {
     [_timers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         STTimer* timer = (STTimer*)obj;

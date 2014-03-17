@@ -11,5 +11,7 @@
 @interface STTimerCollectionViewController : UICollectionViewController
 
 
+- (IBAction)startAllPressed:(id)sender;
+- (IBAction)resetAllPressed:(id)sender;
 
 @end

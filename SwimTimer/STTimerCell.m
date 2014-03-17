@@ -19,10 +19,16 @@
 
 @implementation STTimerCell
 
-- (void) configure; {
-    _myTimer = [[STStopWatch instance] newTimer];
-    [_lapButton setTitle:NSLocalizedString(@"Lap", @"Lap button") forState:UIControlStateNormal];
-    [_startStopButton setTitle:NSLocalizedString(@"Start", @"Start timer") forState:UIControlStateNormal];
+- (void) setTimer:(STTimer*)aTimer; {
+    
+    if(_myTimer) {
+        [_myTimer removeObserver:self forKeyPath:@"running"];
+    }
+    _myTimer =  aTimer;
+
+    [_myTimer addObserver:self forKeyPath:@"running" options:NSKeyValueObservingOptionNew context:nil];
+
+    [self updateButtonText];
 }
 
 -(void)updateTick:(NSTimer*)aTimer; {
@@ -31,6 +37,18 @@
     [[_myTimer lapStrings] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         ((UILabel*)labels[idx]).text = obj;
     }];
+}
+
+#pragma mark UI management
+-(void)updateButtonText; {
+    if([_myTimer isRunning]) {
+        [_startStopButton setTitle:NSLocalizedString(@"Start", @"Start timer button") forState:UIControlStateNormal];
+        [_lapButton setTitle:NSLocalizedString(@"Reset", @"Reset timer button") forState:UIControlStateNormal];
+    } else {
+        [_startStopButton setTitle:NSLocalizedString(@"Stop", @"Start timer button") forState:UIControlStateNormal];
+        [_lapButton setTitle:NSLocalizedString(@"Lap", @"Lap button") forState:UIControlStateNormal];
+        
+    }
 }
 
 -(void)stopUpdatingUI; {
@@ -42,29 +60,33 @@
     _updateTimer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(updateTick:) userInfo:nil repeats:YES];
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
+#pragma mark KVO on the timer.
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if(_myTimer.isRunning) {
+        [self startUpdatingUI];
+    } else {
+        [self stopUpdatingUI];
+    }
+    
+    [self updateButtonText];
 }
-*/
+
+#pragma mark Actions from the storyboard.
 
 - (IBAction)startStopPressed:(id)sender {
     
     if([_myTimer isRunning]) {
         [_myTimer stop];
         [self stopUpdatingUI];
-        [_startStopButton setTitle:NSLocalizedString(@"Start", @"Start timer button") forState:UIControlStateNormal];
-        [_lapButton setTitle:NSLocalizedString(@"Reset", @"Reset timer button") forState:UIControlStateNormal];
+
     } else {
         [_myTimer start];
         [self startUpdatingUI];
-        [_startStopButton setTitle:NSLocalizedString(@"Stop", @"Start timer button") forState:UIControlStateNormal];
-        [_lapButton setTitle:NSLocalizedString(@"Lap", @"Lap button") forState:UIControlStateNormal];
 
     }
+    
+    [self updateButtonText];
 }
 
 - (IBAction)lapPressed:(id)sender {
@@ -72,8 +94,7 @@
         [_myTimer lap];
     } else {
         [_myTimer reset];
-        [_startStopButton setTitle:NSLocalizedString(@"Start", @"Start timer") forState:UIControlStateNormal];
-        [_lapButton setTitle:NSLocalizedString(@"Lap", @"Lap button") forState:UIControlStateNormal];
+        [self updateButtonText];
         _timerLabel.text = @"00:00:00";
         [_lapLabels enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             ((UILabel*) obj).text = @"00:00:00";

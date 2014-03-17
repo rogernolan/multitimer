@@ -14,5 +14,6 @@
 
 -(STTimer*)newTimer;
 - (void)startAll;
+- (void)resetAll;
 - (void)stopAll;
 @end

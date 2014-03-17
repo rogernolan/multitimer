@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+@class STTimer;
 
 @interface STTimerCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
@@ -16,7 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *startStopButton;
 @property (weak, nonatomic) IBOutlet UIButton *lapButton;
 
-- (void) configure;
+- (void) setTimer:(STTimer*)aTimer;
 
     
 - (IBAction)startStopPressed:(id)sender;
