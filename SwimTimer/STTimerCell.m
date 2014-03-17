@@ -19,6 +19,12 @@
 
 @implementation STTimerCell
 
+- (void)prepareForReuse; {
+    _myTimer = nil;
+    [self stopLiveUpdatingTime];
+    
+}
+
 - (void) setTimer:(STTimer*)aTimer; {
     
     if(_myTimer) {
@@ -28,7 +34,8 @@
 
     [_myTimer addObserver:self forKeyPath:@"running" options:NSKeyValueObservingOptionNew context:nil];
 
-    [self updateButtonText];
+    [self updateUserInterface];
+    
 }
 
 -(void)updateTick:(NSTimer*)aTimer; {
@@ -40,23 +47,24 @@
 }
 
 #pragma mark UI management
--(void)updateButtonText; {
+-(void)updateUserInterface; {
     if([_myTimer isRunning]) {
-        [_startStopButton setTitle:NSLocalizedString(@"Start", @"Start timer button") forState:UIControlStateNormal];
-        [_lapButton setTitle:NSLocalizedString(@"Reset", @"Reset timer button") forState:UIControlStateNormal];
-    } else {
         [_startStopButton setTitle:NSLocalizedString(@"Stop", @"Start timer button") forState:UIControlStateNormal];
         [_lapButton setTitle:NSLocalizedString(@"Lap", @"Lap button") forState:UIControlStateNormal];
-        
+        [self startLiveUpdatingTime];
+     } else {
+        [_startStopButton setTitle:NSLocalizedString(@"Start", @"Start timer button") forState:UIControlStateNormal];
+        [_lapButton setTitle:NSLocalizedString(@"Reset", @"Reset timer button") forState:UIControlStateNormal];
+        [self stopLiveUpdatingTime];
     }
 }
 
--(void)stopUpdatingUI; {
+-(void)stopLiveUpdatingTime; {
     [_updateTimer invalidate];
     _updateTimer = nil;
 }
 
--(void)startUpdatingUI;{
+-(void)startLiveUpdatingTime;{
     _updateTimer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(updateTick:) userInfo:nil repeats:YES];
 }
 
@@ -64,12 +72,12 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if(_myTimer.isRunning) {
-        [self startUpdatingUI];
+        [self startLiveUpdatingTime];
     } else {
-        [self stopUpdatingUI];
+        [self stopLiveUpdatingTime];
     }
     
-    [self updateButtonText];
+    [self updateUserInterface];
 }
 
 #pragma mark Actions from the storyboard.
@@ -78,15 +86,15 @@
     
     if([_myTimer isRunning]) {
         [_myTimer stop];
-        [self stopUpdatingUI];
+        [self stopLiveUpdatingTime];
 
     } else {
         [_myTimer start];
-        [self startUpdatingUI];
+        [self startLiveUpdatingTime];
 
     }
     
-    [self updateButtonText];
+    [self updateUserInterface];
 }
 
 - (IBAction)lapPressed:(id)sender {
@@ -94,7 +102,7 @@
         [_myTimer lap];
     } else {
         [_myTimer reset];
-        [self updateButtonText];
+        [self updateUserInterface];
         _timerLabel.text = @"00:00:00";
         [_lapLabels enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             ((UILabel*) obj).text = @"00:00:00";

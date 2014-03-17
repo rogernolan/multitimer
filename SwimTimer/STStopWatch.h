@@ -12,8 +12,10 @@
 
 @interface STStopWatch : KLSingleton
 
--(STTimer*)newTimer;
+- (STTimer*)newTimer;
 - (void)startAll;
 - (void)resetAll;
 - (void)stopAll;
+- (STTimer*)timer:(NSInteger)aTimerIndex;
+
 @end

@@ -11,11 +11,18 @@
 @interface STTimer : NSObject
 
 @property (strong, nonatomic) NSString* name;
-- (BOOL)isRunning; 
-- (void)reset;
+
+-(BOOL)isRunning;
+-(BOOL)hasStarted;
+
+-(void)reset;
 -(void)start;
 -(void)stop;
 -(void)lap;
+
 -(NSString*)timeString;
 -(NSArray*)lapStrings;
+
+- (void)startWithStartTime: (NSDate*)aStartTime;
+
 @end

@@ -19,7 +19,6 @@
 		E9DC64EF18D1E22A0030EEEC /* STAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E9DC64EE18D1E22A0030EEEC /* STAppDelegate.m */; };
 		E9DC64F218D1E22A0030EEEC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9DC64F018D1E22A0030EEEC /* Main.storyboard */; };
 		E9DC64F518D1E22A0030EEEC /* STFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9DC64F418D1E22A0030EEEC /* STFirstViewController.m */; };
-		E9DC64F818D1E22A0030EEEC /* STSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9DC64F718D1E22A0030EEEC /* STSecondViewController.m */; };
 		E9DC64FA18D1E22A0030EEEC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9DC64F918D1E22A0030EEEC /* Images.xcassets */; };
 		E9DC650118D1E22A0030EEEC /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9DC650018D1E22A0030EEEC /* XCTest.framework */; };
 		E9DC650218D1E22A0030EEEC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9DC64DE18D1E22A0030EEEC /* Foundation.framework */; };
@@ -63,8 +62,6 @@
 		E9DC64F118D1E22A0030EEEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E9DC64F318D1E22A0030EEEC /* STFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STFirstViewController.h; sourceTree = "<group>"; };
 		E9DC64F418D1E22A0030EEEC /* STFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STFirstViewController.m; sourceTree = "<group>"; };
-		E9DC64F618D1E22A0030EEEC /* STSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STSecondViewController.h; sourceTree = "<group>"; };
-		E9DC64F718D1E22A0030EEEC /* STSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STSecondViewController.m; sourceTree = "<group>"; };
 		E9DC64F918D1E22A0030EEEC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E9DC64FF18D1E22A0030EEEC /* SwimTimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwimTimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9DC650018D1E22A0030EEEC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -201,8 +198,6 @@
 			children = (
 				E9DC64F318D1E22A0030EEEC /* STFirstViewController.h */,
 				E9DC64F418D1E22A0030EEEC /* STFirstViewController.m */,
-				E9DC64F618D1E22A0030EEEC /* STSecondViewController.h */,
-				E9DC64F718D1E22A0030EEEC /* STSecondViewController.m */,
 				E9DC651618D1E4AF0030EEEC /* STTimerCollectionViewController.h */,
 				E9DC651718D1E4AF0030EEEC /* STTimerCollectionViewController.m */,
 				E9DC651918D1E4DA0030EEEC /* STTimerCell.h */,
@@ -368,7 +363,6 @@
 			files = (
 				E9DC652218D1EAC90030EEEC /* STTimer.m in Sources */,
 				E9DC64EB18D1E22A0030EEEC /* main.m in Sources */,
-				E9DC64F818D1E22A0030EEEC /* STSecondViewController.m in Sources */,
 				E9DC64EF18D1E22A0030EEEC /* STAppDelegate.m in Sources */,
 				E9279D6B18D1F710003C0567 /* STStopWatch.m in Sources */,
 				E9DC651818D1E4AF0030EEEC /* STTimerCollectionViewController.m in Sources */,

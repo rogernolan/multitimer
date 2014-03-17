@@ -17,7 +17,7 @@
 @property (strong, nonatomic) NSDate* startTime;                  // Time we were started
 @property (strong, nonatomic) NSDate* stopTime;                   // most recent stop time
 @property (nonatomic) NSTimeInterval stopTimeReading;     // number of seconds when we were stopped
-@property (nonatomic) NSMutableArray* lapTimes;
+@property (strong, nonatomic) NSMutableArray* lapTimes;
 @property (nonatomic) NSTimeInterval pausedTime;          // How long we have been stopped.
 
 @end
@@ -71,6 +71,13 @@ NSString* timeStringFor(NSTimeInterval aNumberOfSeconds){
     }
 }
 
+- (void)startWithStartTime: (NSDate*)aStartTime; {
+    [self willChangeValueForKey:@"running"];
+    _startTime = aStartTime;
+    [self didChangeValueForKey:@"running"];
+
+}
+
 - (void)toggle;{
     if([self isRunning])
         [self stop];
@@ -79,6 +86,9 @@ NSString* timeStringFor(NSTimeInterval aNumberOfSeconds){
 }
 
 - (void)reset; {
+    if([self isRunning])
+        return;
+    
     _lapTimes = [NSMutableArray arrayWithCapacity:4];
     _startTime = nil;
     _stopTime = nil;
@@ -111,12 +121,20 @@ NSString* timeStringFor(NSTimeInterval aNumberOfSeconds){
 
 
 - (NSTimeInterval) currentRunTime; {
-    return [[NSDate date] timeIntervalSinceDate:_startTime] - _pausedTime;
+    if(_startTime)
+        return [[NSDate date] timeIntervalSinceDate:_startTime] - _pausedTime;
+    else
+        return 0.0;
 }
 
 
 - (BOOL)isRunning; {
     return _startTime && (_stopTime == nil);
 }
+
+-(BOOL)hasStarted;{
+    return _startTime ? YES : NO;
+}
+
 
 @end

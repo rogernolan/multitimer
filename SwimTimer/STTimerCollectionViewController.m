@@ -80,6 +80,13 @@
     return CGSizeMake(0.0, 0.0);
 }
 
+#pragma mark cell actions
+
+-(BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath; {
+    [[STStopWatch instance] timer:[indexPath row]];
+    return NO;
+}
+
 #pragma mark actions from Storboard
 
 - (IBAction)startAllPressed:(id)sender;{

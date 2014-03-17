@@ -36,9 +36,11 @@
 }
 
 -(void)startAll; {
+    NSDate* now = [NSDate date];
     [_timers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         STTimer* timer = (STTimer*)obj;
-        [timer start];
+        if(!timer.hasStarted)
+            [timer startWithStartTime: now];
     }];
 }
 
@@ -54,6 +56,10 @@
         STTimer* timer = (STTimer*)obj;
         [timer stop];
     }];
+}
+
+- (STTimer*)timer:(NSInteger)aTimerIndex; {
+    return [_timers objectAtIndex:aTimerIndex];
 }
 
 @end
