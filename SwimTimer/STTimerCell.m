@@ -11,6 +11,7 @@
 
 @interface STTimerCell () {
 }
+
 @property (strong, nonatomic) STTimer* myTimer;
 @property (strong, nonatomic) NSTimer* updateTimer;
 
@@ -25,7 +26,7 @@
     
 }
 
-- (void) setTimer:(STTimer*)aTimer; {
+- (void) configureWithTimer:(STTimer*)aTimer; {
     
     if(_myTimer) {
         [_myTimer removeObserver:self forKeyPath:@"running"];
@@ -36,6 +37,13 @@
 
     [self updateUserInterface];
     
+    _startStopButton.layer.cornerRadius = _startStopButton.bounds.size.width/2.0;
+    _startStopButton.layer.borderWidth = 1.0;
+    _startStopButton.layer.borderColor = _lapButton.titleLabel.textColor.CGColor;
+    
+    _lapButton.layer.cornerRadius = _lapButton.bounds.size.width/2.0;
+    _lapButton.layer.borderWidth = 1.0;
+    _lapButton.layer.borderColor = _lapButton.titleLabel.textColor.CGColor;
 }
 
 -(void)updateTick:(NSTimer*)aTimer; {

@@ -30,6 +30,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.collectionView.allowsSelection = YES;
 
 }
 
@@ -63,7 +64,7 @@
     
     STTimerCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"STTimerCell" forIndexPath:indexPath];
     STTimer* newTimer = [[STStopWatch instance] newTimer];
-    [cell setTimer:newTimer];
+    [cell configureWithTimer:newTimer];
     return cell;
 }
 
@@ -82,8 +83,8 @@
 
 #pragma mark cell actions
 
--(BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath; {
-    [[STStopWatch instance] timer:[indexPath row]];
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [[[STStopWatch instance] timer:[indexPath row]] lap];
     return NO;
 }
 

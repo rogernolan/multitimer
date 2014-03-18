@@ -17,7 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *startStopButton;
 @property (weak, nonatomic) IBOutlet UIButton *lapButton;
 
-- (void) setTimer:(STTimer*)aTimer;
+- (void) configureWithTimer:(STTimer*)aTimer;
 
     
 - (IBAction)startStopPressed:(id)sender;
