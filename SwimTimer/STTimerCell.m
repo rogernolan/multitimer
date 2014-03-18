@@ -14,7 +14,8 @@
 
 @property (strong, nonatomic) STTimer* myTimer;
 @property (strong, nonatomic) NSTimer* updateTimer;
-
+@property (strong, nonatomic) UITapGestureRecognizer* doubleTapGesture;
+@property (strong, nonatomic) UITapGestureRecognizer* singleTapGesture;
 
 @end
 
@@ -30,10 +31,12 @@
     
     if(_myTimer) {
         [_myTimer removeObserver:self forKeyPath:@"running"];
+        [_myTimer removeObserver:self forKeyPath:@"lapTimes"];
     }
-    _myTimer =  aTimer;
+    self.myTimer =  aTimer;
 
     [_myTimer addObserver:self forKeyPath:@"running" options:NSKeyValueObservingOptionNew context:nil];
+    [_myTimer addObserver:self forKeyPath:@"lapTimes" options:NSKeyValueObservingOptionNew context:nil];
 
     [self updateUserInterface];
     
@@ -44,6 +47,20 @@
     _lapButton.layer.cornerRadius = _lapButton.bounds.size.width/2.0;
     _lapButton.layer.borderWidth = 1.0;
     _lapButton.layer.borderColor = _lapButton.titleLabel.textColor.CGColor;
+    
+    self.doubleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(processDoubleTap:)];
+    [_doubleTapGesture setNumberOfTapsRequired:2];
+    [_doubleTapGesture setNumberOfTouchesRequired:1];
+    
+    [self.contentView addGestureRecognizer:_doubleTapGesture];
+    
+    self.singleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(processSingleTap:)];
+    [_singleTapGesture setNumberOfTapsRequired:1];
+    [_singleTapGesture setNumberOfTouchesRequired:1];
+    [_singleTapGesture requireGestureRecognizerToFail:_doubleTapGesture];
+    
+    [self.contentView addGestureRecognizer:_singleTapGesture];
+    
 }
 
 -(void)updateTick:(NSTimer*)aTimer; {
@@ -65,15 +82,21 @@
         [_lapButton setTitle:NSLocalizedString(@"Reset", @"Reset timer button") forState:UIControlStateNormal];
         [self stopLiveUpdatingTime];
     }
+    
+    _timerLabel.text = @"00:00:00";
+    [_lapLabels enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        ((UILabel*) obj).text = @"00:00:00";
+        
+    }];
 }
 
 -(void)stopLiveUpdatingTime; {
     [_updateTimer invalidate];
-    _updateTimer = nil;
+    self.updateTimer = nil;
 }
 
 -(void)startLiveUpdatingTime;{
-    _updateTimer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(updateTick:) userInfo:nil repeats:YES];
+    self.updateTimer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(updateTick:) userInfo:nil repeats:YES];
 }
 
 #pragma mark KVO on the timer.
@@ -111,12 +134,17 @@
     } else {
         [_myTimer reset];
         [self updateUserInterface];
-        _timerLabel.text = @"00:00:00";
-        [_lapLabels enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            ((UILabel*) obj).text = @"00:00:00";
 
-        }];
     }
+}
+
+#pragma mark gesture recogniser actions
+-(void)processDoubleTap:(UIGestureRecognizer*)aRecogniser; {
+    [_myTimer reset];
+}
+
+-(void)processSingleTap:(UIGestureRecognizer*)aRecogniser; {
+    [_myTimer lap];
 }
 
 @end

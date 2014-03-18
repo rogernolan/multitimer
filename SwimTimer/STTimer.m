@@ -88,8 +88,10 @@ NSString* timeStringFor(NSTimeInterval aNumberOfSeconds){
 - (void)reset; {
     if([self isRunning])
         return;
-    
+    [self willChangeValueForKey:@"lapTimes"];
     _lapTimes = [NSMutableArray arrayWithCapacity:4];
+    [self didChangeValueForKey:@"lapTimes"];
+
     _startTime = nil;
     _stopTime = nil;
     _stopTimeReading = 0.0;
@@ -98,10 +100,15 @@ NSString* timeStringFor(NSTimeInterval aNumberOfSeconds){
 
 
 -(void)lap; {
+    [self willChangeValueForKey:@"lapTimes"];
+
     [_lapTimes addObject: @([self currentRunTime])];
     if([_lapTimes count] > 4) {
         [_lapTimes removeObjectAtIndex:0];
     }
+    
+    [self didChangeValueForKey:@"lapTimes"];
+
 }
 
 -(NSString*)timeString;{

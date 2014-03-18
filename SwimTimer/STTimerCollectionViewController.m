@@ -83,10 +83,6 @@
 
 #pragma mark cell actions
 
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    [[[STStopWatch instance] timer:[indexPath row]] lap];
-    return NO;
-}
 
 #pragma mark actions from Storboard
 
