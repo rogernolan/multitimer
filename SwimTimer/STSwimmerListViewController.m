@@ -8,6 +8,7 @@
 
 #import "STSwimmerListViewController.h"
 #import "STSwimmerStore.h"
+#import "STSwimmer.h"
 
 @interface STSwimmerListViewController ()
 
@@ -113,7 +114,9 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"addNewSwimmer"]) {
-        newSwimmerInDefaultContext;
+        STSwimmer* newSwimmer = [STSwimmer newSwimmerInDefaultContext];
+
+        [(STSwimmerDetailViewController*)[segue destinationViewController] setSwimmer:newSwimmer];
     }
 }
 

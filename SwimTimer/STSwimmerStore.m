@@ -8,6 +8,8 @@
 
 #import "STSwimmerStore.h"
 #import "STAppDelegate.h"
+#import "STSwimmer.h"
+#import "STRaceResult.h"
 
 @implementation STSwimmerStore
 

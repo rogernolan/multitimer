@@ -7,9 +7,12 @@
 //
 
 #import "STSwimmerDetailController.h"
+#import "STSwimmer.h"
+#import "STRaceResult.h"
+#import "STSwimmerNameCell.h"
 
 @interface STSwimmerDetailController ()
-
+@property (nonatomic, retain) STSwimmer* swimmer;
 @end
 
 @implementation STSwimmerDetailController
@@ -21,6 +24,10 @@
         // Custom initialization
     }
     return self;
+}
+
+- (void)configureForSwimmer:(STSwimmer*)aSwimmer; {
+    self.swimmer = aSwimmer;
 }
 
 - (void)viewDidLoad
@@ -45,6 +52,38 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
+    return @[@"details", @"results"];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell* cell;
+    switch ([indexPath section]) {
+        case 0:
+            ;
+            STSwimmerNameCell* nameCell = (STSwimmerNameCell*)[tableView dequeueReusableCellWithIdentifier:@"swimmerNameCell"];
+            switch ([indexPath row]) {
+                case 0:
+                    [nameCell setFirstName:_swimmer.firstName];
+                    break;
+                case 1:
+                    [nameCell setSecondName:_swimmer.lastName];
+
+                default:
+                    break;
+            }
+            break;
+        case 1:
+        default:
+            break;
+    }
+}
+
 
 
 @end

@@ -25,7 +25,6 @@
 		E9279D6B18D1F710003C0567 /* STStopWatch.m in Sources */ = {isa = PBXBuildFile; fileRef = E9279D6A18D1F710003C0567 /* STStopWatch.m */; };
 		E93E168618D89FAE00A3CA45 /* STSwimmerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E93E168518D89FAE00A3CA45 /* STSwimmerListViewController.m */; };
 		E93E168A18D8A9FA00A3CA45 /* STSwimmerDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = E93E168918D8A9FA00A3CA45 /* STSwimmerDetailController.m */; };
-		E95BDD7318D9A94F00E152EE /* Swimmer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E95BDD7118D9A94F00E152EE /* Swimmer.xcdatamodeld */; };
 		E97B86CB18D986F100762E04 /* STSwimmerStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E97B86CA18D986F100762E04 /* STSwimmerStore.m */; };
 		E99CBBBF18D22CB500E28866 /* NSArray+map.m in Sources */ = {isa = PBXBuildFile; fileRef = E99CBBBE18D22CB500E28866 /* NSArray+map.m */; };
 		E99CBBC218D30D7800E28866 /* STTimerHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = E99CBBC118D30D7800E28866 /* STTimerHeader.m */; };
@@ -45,6 +44,12 @@
 		E9DC651818D1E4AF0030EEEC /* STTimerCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9DC651718D1E4AF0030EEEC /* STTimerCollectionViewController.m */; };
 		E9DC651B18D1E4DA0030EEEC /* STTimerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E9DC651A18D1E4DA0030EEEC /* STTimerCell.m */; };
 		E9DC652218D1EAC90030EEEC /* STTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = E9DC652118D1EAC90030EEEC /* STTimer.m */; };
+		E9F32F0218D9B19300EEA0DE /* Swimmers.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E9F32F0018D9B19300EEA0DE /* Swimmers.xcdatamodeld */; };
+		E9F32F0718D9B22100EEA0DE /* _STRaceResult.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F32F0418D9B22100EEA0DE /* _STRaceResult.m */; };
+		E9F32F0818D9B22100EEA0DE /* _STSwimmer.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F32F0618D9B22100EEA0DE /* _STSwimmer.m */; };
+		E9F32F0D18D9B22C00EEA0DE /* STRaceResult.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F32F0A18D9B22C00EEA0DE /* STRaceResult.m */; };
+		E9F32F0E18D9B22C00EEA0DE /* STSwimmer.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F32F0C18D9B22C00EEA0DE /* STSwimmer.m */; };
+		E9F32F1118D9BB8A00EEA0DE /* STSwimmerNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F32F1018D9BB8A00EEA0DE /* STSwimmerNameCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,8 +71,6 @@
 		E93E168518D89FAE00A3CA45 /* STSwimmerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSwimmerListViewController.m; sourceTree = "<group>"; };
 		E93E168818D8A9FA00A3CA45 /* STSwimmerDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSwimmerDetailController.h; sourceTree = "<group>"; };
 		E93E168918D8A9FA00A3CA45 /* STSwimmerDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSwimmerDetailController.m; sourceTree = "<group>"; };
-		E95BDD7218D9A94F00E152EE /* Swimmer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Swimmer.xcdatamodel; sourceTree = "<group>"; };
-		E95BDD7418D9B05100E152EE /* Swimmers.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Swimmers.xcdatamodel; sourceTree = "<group>"; };
 		E97B86C918D986F100762E04 /* STSwimmerStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSwimmerStore.h; sourceTree = "<group>"; };
 		E97B86CA18D986F100762E04 /* STSwimmerStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSwimmerStore.m; sourceTree = "<group>"; };
 		E99CBBBD18D22CB500E28866 /* NSArray+map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+map.h"; sourceTree = "<group>"; };
@@ -97,6 +100,17 @@
 		E9DC651A18D1E4DA0030EEEC /* STTimerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTimerCell.m; sourceTree = "<group>"; };
 		E9DC652018D1EAC90030EEEC /* STTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTimer.h; sourceTree = "<group>"; };
 		E9DC652118D1EAC90030EEEC /* STTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTimer.m; sourceTree = "<group>"; };
+		E9F32F0118D9B19300EEA0DE /* Swimmers.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Swimmers.xcdatamodel; sourceTree = "<group>"; };
+		E9F32F0318D9B22100EEA0DE /* _STRaceResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _STRaceResult.h; path = Model/_STRaceResult.h; sourceTree = "<group>"; };
+		E9F32F0418D9B22100EEA0DE /* _STRaceResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _STRaceResult.m; path = Model/_STRaceResult.m; sourceTree = "<group>"; };
+		E9F32F0518D9B22100EEA0DE /* _STSwimmer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _STSwimmer.h; path = Model/_STSwimmer.h; sourceTree = "<group>"; };
+		E9F32F0618D9B22100EEA0DE /* _STSwimmer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _STSwimmer.m; path = Model/_STSwimmer.m; sourceTree = "<group>"; };
+		E9F32F0918D9B22C00EEA0DE /* STRaceResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STRaceResult.h; path = Model/STRaceResult.h; sourceTree = "<group>"; };
+		E9F32F0A18D9B22C00EEA0DE /* STRaceResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STRaceResult.m; path = Model/STRaceResult.m; sourceTree = "<group>"; };
+		E9F32F0B18D9B22C00EEA0DE /* STSwimmer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STSwimmer.h; path = Model/STSwimmer.h; sourceTree = "<group>"; };
+		E9F32F0C18D9B22C00EEA0DE /* STSwimmer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STSwimmer.m; path = Model/STSwimmer.m; sourceTree = "<group>"; };
+		E9F32F0F18D9BB8A00EEA0DE /* STSwimmerNameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSwimmerNameCell.h; sourceTree = "<group>"; };
+		E9F32F1018D9BB8A00EEA0DE /* STSwimmerNameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSwimmerNameCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,10 +141,14 @@
 		E93E168718D89FEC00A3CA45 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				E9F32F0918D9B22C00EEA0DE /* STRaceResult.h */,
+				E9F32F0A18D9B22C00EEA0DE /* STRaceResult.m */,
+				E9F32F0B18D9B22C00EEA0DE /* STSwimmer.h */,
+				E9F32F0C18D9B22C00EEA0DE /* STSwimmer.m */,
+				E9F32F0018D9B19300EEA0DE /* Swimmers.xcdatamodeld */,
 				E97B86CC18D98A2800762E04 /* Generated */,
 				E97B86C918D986F100762E04 /* STSwimmerStore.h */,
 				E97B86CA18D986F100762E04 /* STSwimmerStore.m */,
-				E95BDD7118D9A94F00E152EE /* Swimmer.xcdatamodeld */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
@@ -138,6 +156,10 @@
 		E97B86CC18D98A2800762E04 /* Generated */ = {
 			isa = PBXGroup;
 			children = (
+				E9F32F0318D9B22100EEA0DE /* _STRaceResult.h */,
+				E9F32F0418D9B22100EEA0DE /* _STRaceResult.m */,
+				E9F32F0518D9B22100EEA0DE /* _STSwimmer.h */,
+				E9F32F0618D9B22100EEA0DE /* _STSwimmer.m */,
 			);
 			name = Generated;
 			sourceTree = "<group>";
@@ -247,6 +269,8 @@
 				E93E168518D89FAE00A3CA45 /* STSwimmerListViewController.m */,
 				E93E168818D8A9FA00A3CA45 /* STSwimmerDetailController.h */,
 				E93E168918D8A9FA00A3CA45 /* STSwimmerDetailController.m */,
+				E9F32F0F18D9BB8A00EEA0DE /* STSwimmerNameCell.h */,
+				E9F32F1018D9BB8A00EEA0DE /* STSwimmerNameCell.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -395,7 +419,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/mogenerator -m SwimTimer/Swimmer.xcdatamodeld -O SwimTimer/Model --template-var arc=true";
+			shellScript = "/usr/local/bin/mogenerator -m SwimTimer/Swimmers.xcdatamodeld -O SwimTimer/Model --template-var arc=true";
 		};
 		E9AEFD507CDF4110B622AD4B /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -419,18 +443,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9F32F0718D9B22100EEA0DE /* _STRaceResult.m in Sources */,
+				E9F32F0E18D9B22C00EEA0DE /* STSwimmer.m in Sources */,
+				E9F32F0218D9B19300EEA0DE /* Swimmers.xcdatamodeld in Sources */,
 				E93E168618D89FAE00A3CA45 /* STSwimmerListViewController.m in Sources */,
 				E9DC652218D1EAC90030EEEC /* STTimer.m in Sources */,
 				E9DC64EB18D1E22A0030EEEC /* main.m in Sources */,
 				E9DC64EF18D1E22A0030EEEC /* STAppDelegate.m in Sources */,
 				E9279D6B18D1F710003C0567 /* STStopWatch.m in Sources */,
+				E9F32F0818D9B22100EEA0DE /* _STSwimmer.m in Sources */,
 				E93E168A18D8A9FA00A3CA45 /* STSwimmerDetailController.m in Sources */,
 				E9DC651818D1E4AF0030EEEC /* STTimerCollectionViewController.m in Sources */,
 				E97B86CB18D986F100762E04 /* STSwimmerStore.m in Sources */,
+				E9F32F1118D9BB8A00EEA0DE /* STSwimmerNameCell.m in Sources */,
 				E99CBBBF18D22CB500E28866 /* NSArray+map.m in Sources */,
 				E99CBBC218D30D7800E28866 /* STTimerHeader.m in Sources */,
+				E9F32F0D18D9B22C00EEA0DE /* STRaceResult.m in Sources */,
 				E9DC651B18D1E4DA0030EEEC /* STTimerCell.m in Sources */,
-				E95BDD7318D9A94F00E152EE /* Swimmer.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -678,14 +707,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		E95BDD7118D9A94F00E152EE /* Swimmer.xcdatamodeld */ = {
+		E9F32F0018D9B19300EEA0DE /* Swimmers.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				E95BDD7418D9B05100E152EE /* Swimmers.xcdatamodel */,
-				E95BDD7218D9A94F00E152EE /* Swimmer.xcdatamodel */,
+				E9F32F0118D9B19300EEA0DE /* Swimmers.xcdatamodel */,
 			);
-			currentVersion = E95BDD7418D9B05100E152EE /* Swimmers.xcdatamodel */;
-			path = Swimmer.xcdatamodeld;
+			currentVersion = E9F32F0118D9B19300EEA0DE /* Swimmers.xcdatamodel */;
+			path = Swimmers.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
