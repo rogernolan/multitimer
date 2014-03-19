@@ -43,4 +43,16 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+#pragma mark conveninence methods
+
++(STAppDelegate*) stDelegate; {
+    // Convenience method to retun this singleton object.
+    return [[UIApplication sharedApplication] delegate];
+}
+
+- (NSURL *)applicationDocumentsDirectory; {
+    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+}
+
+
 @end

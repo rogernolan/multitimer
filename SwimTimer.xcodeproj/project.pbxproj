@@ -6,9 +6,27 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		E97B86D918D9A5A200762E04 /* Mogenerator */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = E97B86DA18D9A5A200762E04 /* Build configuration list for PBXAggregateTarget "Mogenerator" */;
+			buildPhases = (
+				E97B86DD18D9A5B800762E04 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = Mogenerator;
+			productName = Mogenerator;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		5D5CA337B9714132833E1B51 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C688344D4C8B4D99AA3A888E /* libPods.a */; };
 		E9279D6B18D1F710003C0567 /* STStopWatch.m in Sources */ = {isa = PBXBuildFile; fileRef = E9279D6A18D1F710003C0567 /* STStopWatch.m */; };
+		E93E168618D89FAE00A3CA45 /* STSwimmerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E93E168518D89FAE00A3CA45 /* STSwimmerListViewController.m */; };
+		E93E168A18D8A9FA00A3CA45 /* STSwimmerDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = E93E168918D8A9FA00A3CA45 /* STSwimmerDetailController.m */; };
+		E95BDD7318D9A94F00E152EE /* Swimmer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E95BDD7118D9A94F00E152EE /* Swimmer.xcdatamodeld */; };
+		E97B86CB18D986F100762E04 /* STSwimmerStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E97B86CA18D986F100762E04 /* STSwimmerStore.m */; };
 		E99CBBBF18D22CB500E28866 /* NSArray+map.m in Sources */ = {isa = PBXBuildFile; fileRef = E99CBBBE18D22CB500E28866 /* NSArray+map.m */; };
 		E99CBBC218D30D7800E28866 /* STTimerHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = E99CBBC118D30D7800E28866 /* STTimerHeader.m */; };
 		E9DC64DF18D1E22A0030EEEC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9DC64DE18D1E22A0030EEEC /* Foundation.framework */; };
@@ -18,7 +36,6 @@
 		E9DC64EB18D1E22A0030EEEC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E9DC64EA18D1E22A0030EEEC /* main.m */; };
 		E9DC64EF18D1E22A0030EEEC /* STAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E9DC64EE18D1E22A0030EEEC /* STAppDelegate.m */; };
 		E9DC64F218D1E22A0030EEEC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9DC64F018D1E22A0030EEEC /* Main.storyboard */; };
-		E9DC64F518D1E22A0030EEEC /* STFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9DC64F418D1E22A0030EEEC /* STFirstViewController.m */; };
 		E9DC64FA18D1E22A0030EEEC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9DC64F918D1E22A0030EEEC /* Images.xcassets */; };
 		E9DC650118D1E22A0030EEEC /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9DC650018D1E22A0030EEEC /* XCTest.framework */; };
 		E9DC650218D1E22A0030EEEC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9DC64DE18D1E22A0030EEEC /* Foundation.framework */; };
@@ -45,6 +62,14 @@
 		C688344D4C8B4D99AA3A888E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9279D6918D1F710003C0567 /* STStopWatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STStopWatch.h; sourceTree = "<group>"; };
 		E9279D6A18D1F710003C0567 /* STStopWatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STStopWatch.m; sourceTree = "<group>"; };
+		E93E168418D89FAE00A3CA45 /* STSwimmerListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSwimmerListViewController.h; sourceTree = "<group>"; };
+		E93E168518D89FAE00A3CA45 /* STSwimmerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSwimmerListViewController.m; sourceTree = "<group>"; };
+		E93E168818D8A9FA00A3CA45 /* STSwimmerDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSwimmerDetailController.h; sourceTree = "<group>"; };
+		E93E168918D8A9FA00A3CA45 /* STSwimmerDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSwimmerDetailController.m; sourceTree = "<group>"; };
+		E95BDD7218D9A94F00E152EE /* Swimmer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Swimmer.xcdatamodel; sourceTree = "<group>"; };
+		E95BDD7418D9B05100E152EE /* Swimmers.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Swimmers.xcdatamodel; sourceTree = "<group>"; };
+		E97B86C918D986F100762E04 /* STSwimmerStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSwimmerStore.h; sourceTree = "<group>"; };
+		E97B86CA18D986F100762E04 /* STSwimmerStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSwimmerStore.m; sourceTree = "<group>"; };
 		E99CBBBD18D22CB500E28866 /* NSArray+map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+map.h"; sourceTree = "<group>"; };
 		E99CBBBE18D22CB500E28866 /* NSArray+map.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+map.m"; sourceTree = "<group>"; };
 		E99CBBC018D30D7800E28866 /* STTimerHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTimerHeader.h; sourceTree = "<group>"; };
@@ -60,8 +85,6 @@
 		E9DC64ED18D1E22A0030EEEC /* STAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STAppDelegate.h; sourceTree = "<group>"; };
 		E9DC64EE18D1E22A0030EEEC /* STAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STAppDelegate.m; sourceTree = "<group>"; };
 		E9DC64F118D1E22A0030EEEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E9DC64F318D1E22A0030EEEC /* STFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STFirstViewController.h; sourceTree = "<group>"; };
-		E9DC64F418D1E22A0030EEEC /* STFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STFirstViewController.m; sourceTree = "<group>"; };
 		E9DC64F918D1E22A0030EEEC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E9DC64FF18D1E22A0030EEEC /* SwimTimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwimTimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9DC650018D1E22A0030EEEC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -101,6 +124,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E93E168718D89FEC00A3CA45 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				E97B86CC18D98A2800762E04 /* Generated */,
+				E97B86C918D986F100762E04 /* STSwimmerStore.h */,
+				E97B86CA18D986F100762E04 /* STSwimmerStore.m */,
+				E95BDD7118D9A94F00E152EE /* Swimmer.xcdatamodeld */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
+		E97B86CC18D98A2800762E04 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Generated;
+			sourceTree = "<group>";
+		};
 		E99CBBBB18D22C5400E28866 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -196,14 +237,16 @@
 		E9DC651D18D1EA3D0030EEEC /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E9DC64F318D1E22A0030EEEC /* STFirstViewController.h */,
-				E9DC64F418D1E22A0030EEEC /* STFirstViewController.m */,
 				E9DC651618D1E4AF0030EEEC /* STTimerCollectionViewController.h */,
 				E9DC651718D1E4AF0030EEEC /* STTimerCollectionViewController.m */,
 				E9DC651918D1E4DA0030EEEC /* STTimerCell.h */,
 				E9DC651A18D1E4DA0030EEEC /* STTimerCell.m */,
 				E99CBBC018D30D7800E28866 /* STTimerHeader.h */,
 				E99CBBC118D30D7800E28866 /* STTimerHeader.m */,
+				E93E168418D89FAE00A3CA45 /* STSwimmerListViewController.h */,
+				E93E168518D89FAE00A3CA45 /* STSwimmerListViewController.m */,
+				E93E168818D8A9FA00A3CA45 /* STSwimmerDetailController.h */,
+				E93E168918D8A9FA00A3CA45 /* STSwimmerDetailController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -211,6 +254,7 @@
 		E9DC651E18D1EA450030EEEC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E93E168718D89FEC00A3CA45 /* CoreData */,
 				E9DC652018D1EAC90030EEEC /* STTimer.h */,
 				E9DC652118D1EAC90030EEEC /* STTimer.m */,
 				E9279D6918D1F710003C0567 /* STStopWatch.h */,
@@ -298,6 +342,7 @@
 			targets = (
 				E9DC64DA18D1E22A0030EEEC /* SwimTimer */,
 				E9DC64FE18D1E22A0030EEEC /* SwimTimerTests */,
+				E97B86D918D9A5A200762E04 /* Mogenerator */,
 			);
 		};
 /* End PBXProject section */
@@ -339,6 +384,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E97B86DD18D9A5B800762E04 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/mogenerator -m SwimTimer/Swimmer.xcdatamodeld -O SwimTimer/Model --template-var arc=true";
+		};
 		E9AEFD507CDF4110B622AD4B /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -361,15 +419,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E93E168618D89FAE00A3CA45 /* STSwimmerListViewController.m in Sources */,
 				E9DC652218D1EAC90030EEEC /* STTimer.m in Sources */,
 				E9DC64EB18D1E22A0030EEEC /* main.m in Sources */,
 				E9DC64EF18D1E22A0030EEEC /* STAppDelegate.m in Sources */,
 				E9279D6B18D1F710003C0567 /* STStopWatch.m in Sources */,
+				E93E168A18D8A9FA00A3CA45 /* STSwimmerDetailController.m in Sources */,
 				E9DC651818D1E4AF0030EEEC /* STTimerCollectionViewController.m in Sources */,
+				E97B86CB18D986F100762E04 /* STSwimmerStore.m in Sources */,
 				E99CBBBF18D22CB500E28866 /* NSArray+map.m in Sources */,
 				E99CBBC218D30D7800E28866 /* STTimerHeader.m in Sources */,
 				E9DC651B18D1E4DA0030EEEC /* STTimerCell.m in Sources */,
-				E9DC64F518D1E22A0030EEEC /* STFirstViewController.m in Sources */,
+				E95BDD7318D9A94F00E152EE /* Swimmer.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +480,20 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		E97B86DB18D9A5A200762E04 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E97B86DC18D9A5A200762E04 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		E9DC650E18D1E22A0030EEEC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -564,6 +639,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		E97B86DA18D9A5A200762E04 /* Build configuration list for PBXAggregateTarget "Mogenerator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E97B86DB18D9A5A200762E04 /* Debug */,
+				E97B86DC18D9A5A200762E04 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		E9DC64D618D1E22A0030EEEC /* Build configuration list for PBXProject "SwimTimer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -592,6 +676,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E95BDD7118D9A94F00E152EE /* Swimmer.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E95BDD7418D9B05100E152EE /* Swimmers.xcdatamodel */,
+				E95BDD7218D9A94F00E152EE /* Swimmer.xcdatamodel */,
+			);
+			currentVersion = E95BDD7418D9B05100E152EE /* Swimmers.xcdatamodel */;
+			path = Swimmer.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E9DC64D318D1E22A0030EEEC /* Project object */;
 }

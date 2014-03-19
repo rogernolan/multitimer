@@ -11,5 +11,7 @@
 @interface STAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+- (NSURL *)applicationDocumentsDirectory;
 
++(STAppDelegate*) stDelegate;
 @end

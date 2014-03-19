@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5063" systemVersion="13C64" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="STRaceResult" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="distance" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="stroke" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="swimmer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STSwimmer" inverseName="results" inverseEntity="STSwimmer" syncable="YES"/>
+    </entity>
+    <entity name="STSwimmer" syncable="YES">
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="results" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STRaceResult" inverseName="swimmer" inverseEntity="STRaceResult" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="STSwimmer" positionX="-63" positionY="-18" width="128" height="88"/>
+        <element name="STRaceResult" positionX="-54" positionY="-9" width="128" height="120"/>
+    </elements>
+</model>

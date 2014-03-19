@@ -4,49 +4,122 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--First View Controller - First-->
-        <scene sceneID="W3I-pn-N6e">
+        <!--Swimmer List View Controller - Swimmers-->
+        <scene sceneID="Gtr-yZ-RNJ">
             <objects>
-                <viewController title="First" id="CZ4-MO-1fc" customClass="STFirstViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="s9W-kb-ARv"/>
-                        <viewControllerLayoutGuide type="bottom" id="dtj-EO-iXF"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="2VE-Yg-loa">
+                <tableViewController id="wM3-DK-Spe" customClass="STSwimmerListViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="uTS-z9-TT0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Swimmers" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Zhg-ve-WU7">
-                                <rect key="frame" x="20" y="158" width="280" height="42"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" bouncesZoom="NO" editable="NO" text="Loaded by the first view controller — an instance of STFirstViewController — specified in the app delegate." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tZ3-Hv-Q7E">
-                                <rect key="frame" x="20" y="240" width="280" height="88"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="88" id="rDj-Sg-2Zj"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" size="system"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="tZ3-Hv-Q7E" secondAttribute="trailing" constant="20" symbolic="YES" id="94m-GQ-azi"/>
-                            <constraint firstItem="tZ3-Hv-Q7E" firstAttribute="top" secondItem="Zhg-ve-WU7" secondAttribute="bottom" constant="40" id="G3o-MK-III"/>
-                            <constraint firstItem="Zhg-ve-WU7" firstAttribute="leading" secondItem="2VE-Yg-loa" secondAttribute="leading" constant="20" symbolic="YES" id="JQj-gp-vk2"/>
-                            <constraint firstAttribute="trailing" secondItem="Zhg-ve-WU7" secondAttribute="trailing" constant="20" symbolic="YES" id="eHs-J5-0HT"/>
-                            <constraint firstItem="tZ3-Hv-Q7E" firstAttribute="leading" secondItem="2VE-Yg-loa" secondAttribute="leading" constant="20" symbolic="YES" id="lKy-m9-LcB"/>
-                            <constraint firstAttribute="centerY" secondItem="tZ3-Hv-Q7E" secondAttribute="centerY" id="xLM-BA-nZb"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Swimmers" image="first" id="u1e-5L-l1D"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Qh2-T1-AhA" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="STSwimmerCell" id="qfL-v5-HVM">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qfL-v5-HVM" id="ZOb-5e-csh">
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Eq-mT-Uuh">
+                                            <rect key="frame" x="20" y="13" width="242" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="wM3-DK-Spe" id="2Hj-EY-OXf"/>
+                            <outlet property="delegate" destination="wM3-DK-Spe" id="aIO-x1-4TZ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Swimmers" id="Bij-KM-gVO">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="zTd-KT-ESU">
+                            <connections>
+                                <segue destination="GPX-eo-sHF" kind="modal" identifier="addNewSwimmer" id="ssV-AI-Ug6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nUD-wC-hnM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="653" y="-192"/>
+            <point key="canvasLocation" x="1167" y="-172"/>
+        </scene>
+        <!--Swimmer Detail Controller - New Swimmer-->
+        <scene sceneID="VVB-W2-fc3">
+            <objects>
+                <tableViewController id="NDc-dC-INN" customClass="STSwimmerDetailController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Khg-z6-nAR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="oyW-9q-8wP">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oyW-9q-8wP" id="6YI-nn-u1f">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="NDc-dC-INN" id="1Ob-tg-NSE"/>
+                            <outlet property="delegate" destination="NDc-dC-INN" id="qNl-Nl-KoK"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="New Swimmer" id="hTn-8H-BM7">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="HWe-Jf-XfW">
+                            <connections>
+                                <segue destination="W3l-kL-Do0" kind="unwind" unwindAction="saveFromDetailViewController:" id="hLt-ck-lK6"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="ayp-jF-YjN">
+                            <connections>
+                                <segue destination="W3l-kL-Do0" kind="unwind" unwindAction="cancelFromDetailViewController:" id="Nlc-1O-eAg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dWS-ub-oJy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="W3l-kL-Do0" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2169" y="-172"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="RgH-1u-RO9">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="GPX-eo-sHF" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="tbO-QV-KYE"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0AQ-s6-ojb">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="NDc-dC-INN" kind="relationship" relationship="rootViewController" id="6t7-tH-eGU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dd5-iM-HFq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1673" y="-172"/>
+        </scene>
+        <!--Navigation Controller - Swimmers-->
+        <scene sceneID="aLg-va-AER">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="Ahl-cC-r9S" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Swimmers" image="swimmer" id="F7w-bO-JKY"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wVd-6c-Ng9">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="wM3-DK-Spe" kind="relationship" relationship="rootViewController" id="M62-e3-nnK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eZL-eN-C9v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="653" y="-172"/>
         </scene>
         <!--Timer Collection View Controller - Timers-->
         <scene sceneID="TlN-nm-vTA">
@@ -170,7 +243,7 @@
                             <outlet property="delegate" destination="uBP-jF-j0E" id="NJk-JM-Kia"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" title="Timers" id="8zM-7j-ZLI"/>
+                    <tabBarItem key="tabBarItem" title="Timers" image="clock" id="8zM-7j-ZLI"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="es5-BG-kk6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -187,8 +260,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="CZ4-MO-1fc" kind="relationship" relationship="viewControllers" id="SUk-Ux-ee1"/>
                         <segue destination="uBP-jF-j0E" kind="relationship" relationship="viewControllers" id="V2I-V3-hsQ"/>
+                        <segue destination="Ahl-cC-r9S" kind="relationship" relationship="viewControllers" id="Ry0-ED-Lvf"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNP-y4-bzi" sceneMemberID="firstResponder"/>
@@ -197,7 +270,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
+        <image name="clock" width="25" height="25"/>
+        <image name="swimmer" width="25" height="25"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
