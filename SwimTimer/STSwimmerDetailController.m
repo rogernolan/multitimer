@@ -59,8 +59,25 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    if([_races count] > 0)
+        return 2;
+    else
+        return 1;
 }
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    switch (section) {
+        case 0:
+            return NSLocalizedString(@"Details", @"Personal details header in details view");
+            break;
+        case 1:
+            return NSLocalizedString(@"Races", @"Results header in details view");
+        default:
+            return 0;
+            break;
+    }
+}
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
 
