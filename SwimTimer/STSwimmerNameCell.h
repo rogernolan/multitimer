@@ -11,8 +11,9 @@
 @interface STSwimmerNameCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *nameTypeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *nameEdit;
+@property (weak, nonatomic) IBOutlet UITextField *nameEdit;
 
--(void)setFristName:(NSString*)aName;
+-(void)setFirstName:(NSString*)aName;
 -(void)setLastName:(NSString*)aName;
+
 @end

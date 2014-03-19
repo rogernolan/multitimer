@@ -8,10 +8,14 @@
 
 #import "STSwimmerListViewController.h"
 #import "STSwimmerStore.h"
+#import "STSwimmerDetailController.h"
+#import "STSwimmerOverviewCell.h"
 #import "STSwimmer.h"
 
 @interface STSwimmerListViewController ()
 
+@property (nonatomic, strong) STSwimmer* createdSwimmer;
+@property (nonatomic, strong) NSFetchedResultsController* frc;
 @end
 
 @implementation STSwimmerListViewController
@@ -29,12 +33,22 @@
 {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    NSFetchRequest* req = [[NSFetchRequest alloc] initWithEntityName:@"STSwimmer"];
+    NSArray *sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"lastName" ascending:YES],
+                                 [NSSortDescriptor sortDescriptorWithKey:@"firstName" ascending:YES]];
+    [req setSortDescriptors:sortDescriptors];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.frc = [[NSFetchedResultsController alloc] initWithFetchRequest:req
+                                                    managedObjectContext:[[STSwimmerStore instance] defaultManagedObjectContext]
+                                                    sectionNameKeyPath:nil
+                                                    cacheName:@"swimmers"];
+    
+    NSError *error;
+    BOOL success = [_frc performFetch:&error];
+    self.frc.delegate = self;
+    
 }
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -42,70 +56,43 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark NSFetchedResultsControllerDelegate
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller; {
+    [self.tableView reloadData];
+}
+
+
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return [[_frc sections] count];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+- (NSInteger)tableView:(UITableView *)table numberOfRowsInSection:(NSInteger)section {
+    if ([[_frc sections] count] > 0) {
+        id <NSFetchedResultsSectionInfo> sectionInfo = [[_frc sections] objectAtIndex:section];
+        return [sectionInfo numberOfObjects];
+    } else
+        return 0;
 }
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-*/
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    STSwimmerOverviewCell* nameCell = (STSwimmerOverviewCell*)[tableView dequeueReusableCellWithIdentifier:@"SwimmerOverviewCell"];
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+    STSwimmer* swimmer = (STSwimmer*)[_frc objectAtIndexPath:indexPath];
+    [nameCell configureForSwimmer:swimmer];
+    return nameCell;
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    if ([[_frc sections] count] > 0) {
+        id <NSFetchedResultsSectionInfo> sectionInfo = [[_frc sections] objectAtIndex:section];
+        return [sectionInfo name];
+    } else
+        return nil;
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 
 #pragma mark - Navigation
@@ -114,19 +101,22 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"addNewSwimmer"]) {
-        STSwimmer* newSwimmer = [STSwimmer newSwimmerInDefaultContext];
+        self.createdSwimmer = [STSwimmer newSwimmerInDefaultContext];
 
-        [(STSwimmerDetailViewController*)[segue destinationViewController] setSwimmer:newSwimmer];
+        [((STSwimmerDetailController*)[segue destinationViewController]) configureForSwimmer:_createdSwimmer];
     }
 }
 
 
 - (IBAction)saveFromDetailViewController:(UIStoryboardSegue *)segue {
-    //nothing goes here
+    [[STSwimmerStore instance] saveDefaultContext];
+
+    
 }
 
 - (IBAction)cancelFromDetailViewController:(UIStoryboardSegue *)segue {
-    //nothing goes here
+    [[[STSwimmerStore instance] defaultManagedObjectContext] deleteObject:_createdSwimmer];
+
 }
 
 

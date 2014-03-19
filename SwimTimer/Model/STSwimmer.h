@@ -1,5 +1,7 @@
 #import "_STSwimmer.h"
 
 @interface STSwimmer : _STSwimmer {}
-// Custom logic goes here.
+
++(STSwimmer*)newSwimmerCalled:(NSString*)firstName lastName:(NSString*)lastName inContext:(NSManagedObjectContext*)context;
++(STSwimmer*)newSwimmerInDefaultContext;
 @end

@@ -25,14 +25,15 @@
 }
 
 
--(void)setFristName:(NSString*)aName;{
-    _nameTypeLabel.text = NSLocalizedString(@"First name label", @"First name");
-    aName;
+-(void)setFirstName:(NSString*)aName;{
+    _nameTypeLabel.text = NSLocalizedString(@"First name", @"First name label");
+    _nameEdit.text = aName;
     
 }
 
 -(void)setLastName:(NSString*)aName;{
-    
+    _nameTypeLabel.text = NSLocalizedString(@"Last name", @"Last name label");
+    _nameEdit.text = aName;
 }
 
 @end

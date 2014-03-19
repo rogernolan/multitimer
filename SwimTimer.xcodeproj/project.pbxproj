@@ -50,6 +50,7 @@
 		E9F32F0D18D9B22C00EEA0DE /* STRaceResult.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F32F0A18D9B22C00EEA0DE /* STRaceResult.m */; };
 		E9F32F0E18D9B22C00EEA0DE /* STSwimmer.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F32F0C18D9B22C00EEA0DE /* STSwimmer.m */; };
 		E9F32F1118D9BB8A00EEA0DE /* STSwimmerNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F32F1018D9BB8A00EEA0DE /* STSwimmerNameCell.m */; };
+		E9F32F1418D9FA5000EEA0DE /* STSwimmerOverviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F32F1318D9FA5000EEA0DE /* STSwimmerOverviewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,8 @@
 		E9F32F0C18D9B22C00EEA0DE /* STSwimmer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STSwimmer.m; path = Model/STSwimmer.m; sourceTree = "<group>"; };
 		E9F32F0F18D9BB8A00EEA0DE /* STSwimmerNameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSwimmerNameCell.h; sourceTree = "<group>"; };
 		E9F32F1018D9BB8A00EEA0DE /* STSwimmerNameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSwimmerNameCell.m; sourceTree = "<group>"; };
+		E9F32F1218D9FA5000EEA0DE /* STSwimmerOverviewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSwimmerOverviewCell.h; sourceTree = "<group>"; };
+		E9F32F1318D9FA5000EEA0DE /* STSwimmerOverviewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSwimmerOverviewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,6 +254,14 @@
 		E9DC651C18D1EA2E0030EEEC /* VIew */ = {
 			isa = PBXGroup;
 			children = (
+				E9DC651918D1E4DA0030EEEC /* STTimerCell.h */,
+				E9DC651A18D1E4DA0030EEEC /* STTimerCell.m */,
+				E99CBBC018D30D7800E28866 /* STTimerHeader.h */,
+				E99CBBC118D30D7800E28866 /* STTimerHeader.m */,
+				E9F32F0F18D9BB8A00EEA0DE /* STSwimmerNameCell.h */,
+				E9F32F1018D9BB8A00EEA0DE /* STSwimmerNameCell.m */,
+				E9F32F1218D9FA5000EEA0DE /* STSwimmerOverviewCell.h */,
+				E9F32F1318D9FA5000EEA0DE /* STSwimmerOverviewCell.m */,
 				E9DC64F018D1E22A0030EEEC /* Main.storyboard */,
 			);
 			name = VIew;
@@ -261,16 +272,10 @@
 			children = (
 				E9DC651618D1E4AF0030EEEC /* STTimerCollectionViewController.h */,
 				E9DC651718D1E4AF0030EEEC /* STTimerCollectionViewController.m */,
-				E9DC651918D1E4DA0030EEEC /* STTimerCell.h */,
-				E9DC651A18D1E4DA0030EEEC /* STTimerCell.m */,
-				E99CBBC018D30D7800E28866 /* STTimerHeader.h */,
-				E99CBBC118D30D7800E28866 /* STTimerHeader.m */,
 				E93E168418D89FAE00A3CA45 /* STSwimmerListViewController.h */,
 				E93E168518D89FAE00A3CA45 /* STSwimmerListViewController.m */,
 				E93E168818D8A9FA00A3CA45 /* STSwimmerDetailController.h */,
 				E93E168918D8A9FA00A3CA45 /* STSwimmerDetailController.m */,
-				E9F32F0F18D9BB8A00EEA0DE /* STSwimmerNameCell.h */,
-				E9F32F1018D9BB8A00EEA0DE /* STSwimmerNameCell.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -445,6 +450,7 @@
 			files = (
 				E9F32F0718D9B22100EEA0DE /* _STRaceResult.m in Sources */,
 				E9F32F0E18D9B22C00EEA0DE /* STSwimmer.m in Sources */,
+				E9F32F1418D9FA5000EEA0DE /* STSwimmerOverviewCell.m in Sources */,
 				E9F32F0218D9B19300EEA0DE /* Swimmers.xcdatamodeld in Sources */,
 				E93E168618D89FAE00A3CA45 /* STSwimmerListViewController.m in Sources */,
 				E9DC652218D1EAC90030EEEC /* STTimer.m in Sources */,

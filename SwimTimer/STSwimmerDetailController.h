@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class STSwimmer;
+
 @interface STSwimmerDetailController : UITableViewController
+- (void)configureForSwimmer:(STSwimmer*)aSwimmer;
 
 @end

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface STSwimmerListViewController : UITableViewController
+@interface STSwimmerListViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
 @end

@@ -13,6 +13,9 @@
 
 @interface STSwimmerDetailController ()
 @property (nonatomic, retain) STSwimmer* swimmer;
+@property (nonatomic, retain) NSArray* races;
+@property (nonatomic, retain) STSwimmerNameCell* firstNameCell;
+@property (nonatomic, retain) STSwimmerNameCell* lastNameCell;
 @end
 
 @implementation STSwimmerDetailController
@@ -28,6 +31,7 @@
 
 - (void)configureForSwimmer:(STSwimmer*)aSwimmer; {
     self.swimmer = aSwimmer;
+    self.races = [aSwimmer.results sortedArrayUsingDescriptors:@[@"date"]];
 }
 
 - (void)viewDidLoad
@@ -42,48 +46,87 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender; {
+    // Our tabbabr buttons are tag = 1 for done, 2 for cancel.
+    if(((UIBarButtonItem*)sender).tag == 1) {
+        self.swimmer.firstName = _firstNameCell.nameEdit.text;
+        self.swimmer.lastName = _lastNameCell.nameEdit.text;
+    }
 }
-*/
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return 2;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+
+    switch (section) {
+        case 0:
+            return 2;
+            break;
+        case 1:
+            return [_races count];
+        default:
+            return 0;
+            break;
+    }
 }
 
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
     return @[@"details", @"results"];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell* cell;
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     switch ([indexPath section]) {
         case 0:
-            ;
-            STSwimmerNameCell* nameCell = (STSwimmerNameCell*)[tableView dequeueReusableCellWithIdentifier:@"swimmerNameCell"];
-            switch ([indexPath row]) {
-                case 0:
-                    [nameCell setFirstName:_swimmer.firstName];
-                    break;
-                case 1:
-                    [nameCell setSecondName:_swimmer.lastName];
-
-                default:
-                    break;
-            }
+            return 70.0f;
             break;
-        case 1:
         default:
+            return 50.0f;
             break;
     }
 }
 
-
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell* cell;
+    switch ([indexPath section]) {
+        case 0:{         // Swimmer details
+            switch ([indexPath row]) {
+                case 0:
+                    if(_firstNameCell) {
+                        return _firstNameCell;
+                    } else {
+                        self.firstNameCell = (STSwimmerNameCell*)[tableView dequeueReusableCellWithIdentifier:@"swimmerNameCell"];
+                        [_firstNameCell setFirstName:_swimmer.firstName];
+                        return _firstNameCell;
+                    }
+                    
+                    break;
+                case 1:
+                    if(_lastNameCell) {
+                        return _lastNameCell;
+                    } else {
+                        self.lastNameCell = (STSwimmerNameCell*)[tableView dequeueReusableCellWithIdentifier:@"swimmerNameCell"];
+                        [_lastNameCell setLastName:_swimmer.firstName];
+                    }
+                    return _lastNameCell;
+                default:
+                    break;
+            }
+        }
+            break;
+        case 1:           // race results.
+            ;
+        default:
+            break;
+    }
+    
+    return cell;
+}
 
 @end

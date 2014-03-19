@@ -1,5 +1,6 @@
 #import "STSwimmer.h"
 #import "STSwimmerStore.h"
+#import "STRaceResult.h"
 
 @interface STSwimmer ()
 
@@ -10,14 +11,15 @@
 
 @implementation STSwimmer
 
+
 -(STRaceResult*)addRaceResult:(NSString*)stroke withDistance:(NSInteger)distance finishTime:(NSTimeInterval)time;{
     NSManagedObjectContext* ctx = self.managedObjectContext;
     
     STRaceResult* result = [STRaceResult insertInManagedObjectContext:ctx];
     result.stroke = stroke;
-    result.distance = distance;
+    result.distance = @(distance);
     result.date = [NSDate date];
-    result.time = time;
+    result.time = @(time);
     
     [self addResultsObject:result];
     
@@ -25,7 +27,7 @@
 
 }
 
-+(STSwimmer*)newSwimmerCalled:(NSSTring*)firstName lastName:(NSString*)lastName inContext:(NSManagedObjectContext*)context; {
++(STSwimmer*)newSwimmerCalled:(NSString*)firstName lastName:(NSString*)lastName inContext:(NSManagedObjectContext*)context; {
     STSwimmer* swimmer = [self insertInManagedObjectContext:context];
     swimmer.firstName = firstName;
     swimmer.lastName = lastName;

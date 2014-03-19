@@ -38,7 +38,7 @@
     if (_managedObjectModel != nil) {
         return _managedObjectModel;
     }
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"SwimmerModel" withExtension:@"momd"];
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"Swimmers" withExtension:@"momd"];
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     return _managedObjectModel;
 }
@@ -64,8 +64,7 @@
     return _persistentStoreCoordinator;
 }
 
-- (void)saveDefaultContext
-{
+- (void)saveDefaultContext; {
     NSError *error = nil;
     NSManagedObjectContext *managedObjectContext = self.defaultManagedObjectContext;
     if (managedObjectContext != nil) {
