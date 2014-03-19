@@ -76,10 +76,6 @@
     }
 }
 
-- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
-    return @[@"details", @"results"];
-}
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     switch ([indexPath section]) {
