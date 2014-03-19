@@ -31,6 +31,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="nameLabel" destination="7Eq-mT-Uuh" id="HH8-qN-0qp"/>
+                                    <segue destination="NDc-dC-INN" kind="push" identifier="editSwimmer" id="Gdm-Qn-Uj9"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -372,4 +373,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="Gdm-Qn-Uj9"/>
+    </inferredMetricsTieBreakers>
 </document>

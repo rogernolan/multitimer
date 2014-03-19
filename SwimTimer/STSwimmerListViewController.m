@@ -104,6 +104,10 @@
         self.createdSwimmer = [STSwimmer newSwimmerInDefaultContext];
 
         [((STSwimmerDetailController*)[segue destinationViewController]) configureForSwimmer:_createdSwimmer];
+    } else if ([[segue identifier] isEqualToString:@"editSwimmer"]) {
+        STSwimmer* selection = [_frc objectAtIndexPath:[self.tableView indexPathForSelectedRow]];
+        [((STSwimmerDetailController*)[segue destinationViewController]) configureForSwimmer:selection];
+
     }
 }
 

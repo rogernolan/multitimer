@@ -49,20 +49,21 @@
 
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender; {
     // Our tabbabr buttons are tag = 1 for done, 2 for cancel.
     if(((UIBarButtonItem*)sender).tag == 1) {
+        // Pressed done so persist any changes.
         self.swimmer.firstName = _firstNameCell.nameEdit.text;
         self.swimmer.lastName = _lastNameCell.nameEdit.text;
     }
 }
 
+#pragma mark UITableViewDelegate methods
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     if([_races count] > 0)
         return 2;
     else
-        return 1;
+        return 1;       // No races section if there are no races.
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
@@ -78,8 +79,7 @@
     }
 }
 
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section; {
 
     switch (section) {
         case 0:
@@ -93,7 +93,7 @@
     }
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath; {
     
     switch ([indexPath section]) {
         case 0:
@@ -105,7 +105,7 @@
     }
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath; {
     UITableViewCell* cell;
     switch ([indexPath section]) {
         case 0:{         // Swimmer details
@@ -125,7 +125,7 @@
                         return _lastNameCell;
                     } else {
                         self.lastNameCell = (STSwimmerNameCell*)[tableView dequeueReusableCellWithIdentifier:@"swimmerNameCell"];
-                        [_lastNameCell setLastName:_swimmer.firstName];
+                        [_lastNameCell setLastName:_swimmer.lastName];
                     }
                     return _lastNameCell;
                 default:
