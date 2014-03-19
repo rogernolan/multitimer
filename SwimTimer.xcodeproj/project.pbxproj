@@ -51,6 +51,8 @@
 		E9F32F0E18D9B22C00EEA0DE /* STSwimmer.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F32F0C18D9B22C00EEA0DE /* STSwimmer.m */; };
 		E9F32F1118D9BB8A00EEA0DE /* STSwimmerNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F32F1018D9BB8A00EEA0DE /* STSwimmerNameCell.m */; };
 		E9F32F1418D9FA5000EEA0DE /* STSwimmerOverviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F32F1318D9FA5000EEA0DE /* STSwimmerOverviewCell.m */; };
+		E9F32F1718DA056700EEA0DE /* STSwimmerSelectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F32F1618DA056700EEA0DE /* STSwimmerSelectionCell.m */; };
+		E9F32F1A18DA060D00EEA0DE /* STSwimmerSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F32F1918DA060D00EEA0DE /* STSwimmerSelectionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +116,10 @@
 		E9F32F1018D9BB8A00EEA0DE /* STSwimmerNameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSwimmerNameCell.m; sourceTree = "<group>"; };
 		E9F32F1218D9FA5000EEA0DE /* STSwimmerOverviewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSwimmerOverviewCell.h; sourceTree = "<group>"; };
 		E9F32F1318D9FA5000EEA0DE /* STSwimmerOverviewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSwimmerOverviewCell.m; sourceTree = "<group>"; };
+		E9F32F1518DA056700EEA0DE /* STSwimmerSelectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSwimmerSelectionCell.h; sourceTree = "<group>"; };
+		E9F32F1618DA056700EEA0DE /* STSwimmerSelectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSwimmerSelectionCell.m; sourceTree = "<group>"; };
+		E9F32F1818DA060D00EEA0DE /* STSwimmerSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSwimmerSelectionViewController.h; sourceTree = "<group>"; };
+		E9F32F1918DA060D00EEA0DE /* STSwimmerSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSwimmerSelectionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -262,6 +268,8 @@
 				E9F32F1018D9BB8A00EEA0DE /* STSwimmerNameCell.m */,
 				E9F32F1218D9FA5000EEA0DE /* STSwimmerOverviewCell.h */,
 				E9F32F1318D9FA5000EEA0DE /* STSwimmerOverviewCell.m */,
+				E9F32F1518DA056700EEA0DE /* STSwimmerSelectionCell.h */,
+				E9F32F1618DA056700EEA0DE /* STSwimmerSelectionCell.m */,
 				E9DC64F018D1E22A0030EEEC /* Main.storyboard */,
 			);
 			name = VIew;
@@ -276,6 +284,8 @@
 				E93E168518D89FAE00A3CA45 /* STSwimmerListViewController.m */,
 				E93E168818D8A9FA00A3CA45 /* STSwimmerDetailController.h */,
 				E93E168918D8A9FA00A3CA45 /* STSwimmerDetailController.m */,
+				E9F32F1818DA060D00EEA0DE /* STSwimmerSelectionViewController.h */,
+				E9F32F1918DA060D00EEA0DE /* STSwimmerSelectionViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -449,6 +459,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9F32F0718D9B22100EEA0DE /* _STRaceResult.m in Sources */,
+				E9F32F1718DA056700EEA0DE /* STSwimmerSelectionCell.m in Sources */,
 				E9F32F0E18D9B22C00EEA0DE /* STSwimmer.m in Sources */,
 				E9F32F1418D9FA5000EEA0DE /* STSwimmerOverviewCell.m in Sources */,
 				E9F32F0218D9B19300EEA0DE /* Swimmers.xcdatamodeld in Sources */,
@@ -456,6 +467,7 @@
 				E9DC652218D1EAC90030EEEC /* STTimer.m in Sources */,
 				E9DC64EB18D1E22A0030EEEC /* main.m in Sources */,
 				E9DC64EF18D1E22A0030EEEC /* STAppDelegate.m in Sources */,
+				E9F32F1A18DA060D00EEA0DE /* STSwimmerSelectionViewController.m in Sources */,
 				E9279D6B18D1F710003C0567 /* STStopWatch.m in Sources */,
 				E9F32F0818D9B22100EEA0DE /* _STSwimmer.m in Sources */,
 				E93E168A18D8A9FA00A3CA45 /* STSwimmerDetailController.m in Sources */,
