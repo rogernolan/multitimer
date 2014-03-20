@@ -20,9 +20,12 @@
 -(void)stop;
 -(void)lap;
 
+-(NSTimeInterval) currentRunTime;
 -(NSString*)timeString;
 -(NSArray*)lapStrings;
 
 - (void)startWithStartTime: (NSDate*)aStartTime;
 
 @end
+
+NSString* timeStringFor(NSTimeInterval aNumberOfSeconds);

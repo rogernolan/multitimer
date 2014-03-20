@@ -13,10 +13,12 @@
 #import "NSArray+map.h"
 #import "STTimerCollectionViewController.h"
 #import "STStopWatch.h"
+#import "STSwimmerStore.h"
 
 @interface STSwimmerSelectionViewController ()
 
 @property (strong, nonatomic) NSFetchedResultsController* frc;
+@property (strong , nonatomic) STStopWatch * stopwatch;
 @end
 
 @implementation STSwimmerSelectionViewController
@@ -110,6 +112,7 @@
         return nil;
 }
 
+#pragma mark storyboard navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -119,8 +122,21 @@
             return [swimmer fullName];
         }];
         
-        STStopWatch * stopwatch = [STStopWatch StopWatchWithNames:selectionNames];
-        [((STTimerCollectionViewController*)[segue destinationViewController]) configureWithStopWatch:stopwatch];
+        self.stopwatch = [STStopWatch StopWatchWithNames:selectionNames];
+        [((STTimerCollectionViewController*)[segue destinationViewController]) configureWithStopWatch:_stopwatch];
+    }
+}
+
+- (IBAction)saveFromRaceViewController:(UIStoryboardSegue *)segue {
+    
+    if([[segue identifier ] isEqualToString: @"saveFromRace"]) {
+        [[self.tableView indexPathsForSelectedRows] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            STTimer* timer = [self.stopwatch timer:idx];
+            STSwimmer* swimmer = [_frc objectAtIndexPath:(NSIndexPath*)obj];
+            [swimmer addRaceResult:@"Butterfly" withDistance:100 finishTime:[timer currentRunTime]];
+        }];
+        [[STSwimmerStore instance] saveDefaultContext];
+        self.stopwatch = nil;
     }
 }
 

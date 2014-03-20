@@ -15,8 +15,12 @@
 - (void)startAll;
 - (void)resetAll;
 - (void)stopAll;
+
 - (STTimer*)timer:(NSInteger)aTimerIndex;
-- (NSUInteger*)count;
+- (NSUInteger)count;
+
+-(BOOL)running;
+-(BOOL)hasStarted;
 
 +(STStopWatch*)StopWatchWithNames:(NSArray*)swimmers;
 

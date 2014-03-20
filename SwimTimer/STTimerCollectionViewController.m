@@ -107,4 +107,44 @@
 
 }
 
+- (IBAction)cancelRacePressed:(id)sender {
+    NSString* message = nil;
+    if([_stopwatch hasStarted]) {
+        message = NSLocalizedString(@"Lose results of this race? All timings will be lost", @"Message when cancelling a race where stopwatches have started");
+    } else if([_stopwatch running]) {
+        message = NSLocalizedString(@"Cancel running race? All timings will be lost", @"Message when cancelling a race where stopwatches are running");
+
+    }
+    
+    if(message) {
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Cancel?"
+                            message:message
+                            delegate:self
+                            cancelButtonTitle:@"No"
+                            otherButtonTitles:@"Yes", nil];
+        [alert show];
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([[segue identifier ] isEqualToString: @"saveFromRace"])
+        [_stopwatch stopAll];
+}
+
+
+#pragma mark UIAlertView delegate.
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex; {
+    switch (buttonIndex) {
+        case 0:
+            break;
+        case 1:{
+            // OK
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+        default:
+            break;
+    }
+}
+
+
 @end

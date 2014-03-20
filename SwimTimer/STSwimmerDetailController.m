@@ -10,6 +10,7 @@
 #import "STSwimmer.h"
 #import "STRaceResult.h"
 #import "STSwimmerNameCell.h"
+#import "STRaceResultsCell.h"
 
 @interface STSwimmerDetailController ()
 @property (nonatomic, retain) STSwimmer* swimmer;
@@ -106,7 +107,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath; {
-    UITableViewCell* cell;
+
     switch ([indexPath section]) {
         case 0:{         // Swimmer details
             switch ([indexPath row]) {
@@ -131,15 +132,19 @@
                 default:
                     break;
             }
-        }
             break;
-        case 1:           // race results.
-            ;
+        }
+        case 1:{           // race results.
+
+            STRaceResultsCell* cell = (STRaceResultsCell*) [tableView dequeueReusableCellWithIdentifier:@"STRaceResultsCell"];
+            [cell configureWithRaceResult:[_races objectAtIndex:[indexPath row]]];
+            return cell;
+        };
         default:
             break;
     }
     
-    return cell;
+    return nil;
 }
 
 @end

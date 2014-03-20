@@ -65,7 +65,38 @@
     }];
 }
 
-- (NSUInteger*)count {
+-(BOOL)running; {
+    __block BOOL running = NO;
+    [_timers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        STTimer* timer = (STTimer*)obj;
+        if([timer isRunning]){
+            running = YES;
+            *stop = YES;
+        }
+        
+    }];
+    
+    return running;
+    
+}
+
+-(BOOL)hasStarted;{
+    __block BOOL started = NO;
+    [_timers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        STTimer* timer = (STTimer*)obj;
+        if([timer hasStarted]){
+            started = YES;
+            *stop = YES;
+        }
+        
+    }];
+    
+    return started;
+    
+}
+
+
+- (NSUInteger)count {
     return [_timers count];
 }
 

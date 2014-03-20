@@ -88,7 +88,7 @@
                                     <outlet property="nameTypeLabel" destination="FTk-bS-Nt2" id="enm-Rf-a8X"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="RaceResultsCell" rowHeight="50" id="Tfo-2h-7yQ">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="STRaceResultsCell" rowHeight="50" id="Tfo-2h-7yQ" customClass="STRaceResultsCell">
                                 <rect key="frame" x="0.0" y="189" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Tfo-2h-7yQ" id="uNU-PT-gUq">
@@ -104,17 +104,22 @@
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1000m Breaststroke" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BuY-db-yjf">
                                             <rect key="frame" x="20" y="20" width="194" height="24"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="88:88:88" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hWv-0s-Hqz">
                                             <rect key="frame" x="222" y="14" width="78" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="dateLabel" destination="Cbb-4Q-n0l" id="skd-Dl-cda"/>
+                                    <outlet property="timeLabel" destination="hWv-0s-Hqz" id="k0k-kw-hgZ"/>
+                                    <outlet property="titleLabel" destination="BuY-db-yjf" id="kqh-Ro-OWK"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -352,9 +357,22 @@
                         </connections>
                     </collectionView>
                     <tabBarItem key="tabBarItem" title="Timers" image="clock" id="8zM-7j-ZLI"/>
-                    <navigationItem key="navigationItem" id="eqf-ta-HCm"/>
+                    <navigationItem key="navigationItem" id="eqf-ta-HCm">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="Kcf-fb-sTj">
+                            <connections>
+                                <action selector="cancelRacePressed:" destination="uBP-jF-j0E" id="FGE-CT-4gR"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="ku1-96-oAX">
+                            <connections>
+                                <action selector="savePressed:" destination="uBP-jF-j0E" id="Jjd-m9-fDe"/>
+                                <segue destination="X1W-9c-Fpu" kind="unwind" identifier="saveFromRace" unwindAction="saveFromRaceViewController:" id="1Ai-sS-Rm6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="es5-BG-kk6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="X1W-9c-Fpu" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1662" y="494"/>
         </scene>
