@@ -12,7 +12,7 @@
 #import "STStopWatch.h"
 
 @interface STTimerCollectionViewController ()
-
+@property (nonatomic, strong) STStopWatch* stopwatch;
 @end
 
 @implementation STTimerCollectionViewController
@@ -41,18 +41,21 @@
 }
 
 
-#pragma mark - Navigation
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-
- 
+-(void) configureWithStopWatch:(STStopWatch*)aStopwatch;{
+    self.stopwatch = aStopwatch;
 }
+#pragma mark - Navigation
+//
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//{
+//
+// 
+//}
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section; {
     if(section == 0) {
-        return 6;
+        return (NSInteger)[_stopwatch count];
     }
     
     return 0;
@@ -62,8 +65,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath;{
     
     STTimerCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"STTimerCell" forIndexPath:indexPath];
-    STTimer* newTimer = [[STStopWatch instance] newTimer];
-    [cell configureWithTimer:newTimer];
+    [cell configureWithTimer:[_stopwatch timer:[indexPath row]]];
     return cell;
 }
 
@@ -86,11 +88,11 @@
 #pragma mark actions from Storboard
 
 - (IBAction)startAllPressed:(id)sender;{
-    [[STStopWatch instance] startAll];
+    [_stopwatch  startAll];
 }
 
 - (IBAction)resetAllPressed:(id)sender;{
-    [[STStopWatch instance] resetAll];
+    [_stopwatch resetAll];
 
 }
 

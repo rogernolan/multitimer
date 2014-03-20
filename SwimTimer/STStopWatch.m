@@ -7,6 +7,7 @@
 //
 
 #import "STStopWatch.h"
+#import "STSwimmer.h"
 
 @interface STStopWatch () {
 }
@@ -35,6 +36,12 @@
     return newTimer;
 }
 
+- (STTimer*)newTimerNamed:(NSString*)aName{
+    STTimer* newTimer = [self newTimer];
+    newTimer.name = aName;
+    return newTimer;
+}
+
 -(void)startAll; {
     NSDate* now = [NSDate date];
     [_timers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
@@ -58,8 +65,21 @@
     }];
 }
 
+- (NSUInteger*)count {
+    return [_timers count];
+}
+
 - (STTimer*)timer:(NSInteger)aTimerIndex; {
     return [_timers objectAtIndex:aTimerIndex];
+}
+
++(STStopWatch*)StopWatchWithNames:(NSArray*)swimmers;{
+    STStopWatch* newStopwatch = [[STStopWatch alloc] init];
+    for(NSString* name in swimmers){
+        [newStopwatch newTimerNamed:name];
+    }
+    
+    return newStopwatch;
 }
 
 @end

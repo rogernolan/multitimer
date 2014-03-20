@@ -10,4 +10,5 @@
 
 @interface STSwimmerSelectionViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *goButton;
 @end

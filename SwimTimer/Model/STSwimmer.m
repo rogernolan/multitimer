@@ -27,6 +27,11 @@
 
 }
 
+- (NSString*)fullName; {
+    return [NSString stringWithFormat:@"%@ %@", self.firstName, self.lastName ];
+    
+}
+
 +(STSwimmer*)newSwimmerCalled:(NSString*)firstName lastName:(NSString*)lastName inContext:(NSManagedObjectContext*)context; {
     STSwimmer* swimmer = [self insertInManagedObjectContext:context];
     swimmer.firstName = firstName;

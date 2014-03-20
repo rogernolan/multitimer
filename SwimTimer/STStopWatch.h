@@ -7,15 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "KLSingleton.h"
 #import "STTimer.h"
 
-@interface STStopWatch : KLSingleton
+@interface STStopWatch : NSObject
 
 - (STTimer*)newTimer;
 - (void)startAll;
 - (void)resetAll;
 - (void)stopAll;
 - (STTimer*)timer:(NSInteger)aTimerIndex;
+- (NSUInteger*)count;
+
++(STStopWatch*)StopWatchWithNames:(NSArray*)swimmers;
 
 @end

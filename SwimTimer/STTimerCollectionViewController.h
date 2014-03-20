@@ -8,10 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class STStopWatch;
+
+
 @interface STTimerCollectionViewController : UICollectionViewController
 
 
 - (IBAction)startAllPressed:(id)sender;
 - (IBAction)resetAllPressed:(id)sender;
+
+-(void) configureWithStopWatch:(STStopWatch*)aStopwatch;
 
 @end

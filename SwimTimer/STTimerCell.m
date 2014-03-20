@@ -48,6 +48,8 @@
     _lapButton.layer.borderWidth = 1.0;
     _lapButton.layer.borderColor = _lapButton.titleLabel.textColor.CGColor;
     
+    _nameLabel.text = _myTimer.name;
+    
     self.doubleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(processDoubleTap:)];
     [_doubleTapGesture setNumberOfTapsRequired:2];
     [_doubleTapGesture setNumberOfTouchesRequired:1];

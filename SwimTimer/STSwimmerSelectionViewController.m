@@ -10,6 +10,9 @@
 #import "STSwimmerStore.h"
 #import "STSwimmer.h"
 #import "STSwimmerSelectionCell.h"
+#import "NSArray+map.h"
+#import "STTimerCollectionViewController.h"
+#import "STStopWatch.h"
 
 @interface STSwimmerSelectionViewController ()
 
@@ -44,6 +47,8 @@
     BOOL success = [_frc performFetch:&error];
     self.frc.delegate = self;
     
+    self.tableView.allowsMultipleSelection = YES;
+    
 }
 
 
@@ -51,6 +56,22 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark UITableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [[self.tableView cellForRowAtIndexPath:indexPath] setAccessoryType:UITableViewCellAccessoryCheckmark];
+    if([[self.tableView indexPathsForSelectedRows] count] > 1)
+        _goButton.enabled = YES;
+}
+
+
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [[self.tableView cellForRowAtIndexPath:indexPath] setAccessoryType:UITableViewCellAccessoryNone];
+    if([[self.tableView indexPathsForSelectedRows] count] > 1)
+        _goButton.enabled = YES;
+}
+
 
 #pragma mark NSFetchedResultsControllerDelegate
 
@@ -89,5 +110,18 @@
         return nil;
 }
 
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"startRace"]) {
+        NSArray* selectionNames = [[self.tableView indexPathsForSelectedRows] mapObjectsUsingBlock:^id(id obj, NSUInteger idx) {
+            STSwimmer* swimmer = [_frc objectAtIndexPath:(NSIndexPath*)obj];
+            return [swimmer fullName];
+        }];
+        
+        STStopWatch * stopwatch = [STStopWatch StopWatchWithNames:selectionNames];
+        [((STTimerCollectionViewController*)[segue destinationViewController]) configureWithStopWatch:stopwatch];
+    }
+}
 
 @end

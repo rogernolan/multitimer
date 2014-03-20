@@ -37,7 +37,7 @@
 
 -(void)configureForSwimmer:(STSwimmer*)swimmer; {
     self.swimmer = swimmer;
-    self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", swimmer.firstName, swimmer.lastName];
+    self.nameLabel.text = [_swimmer fullName];
 }
 
 
