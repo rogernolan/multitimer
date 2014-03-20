@@ -8,7 +8,6 @@
 
 #import "STTimerCollectionViewController.h"
 #import "STTimerCell.h"
-#import "STTimerHeader.h"
 #import "STStopWatch.h"
 
 @interface STTimerCollectionViewController ()
@@ -82,7 +81,7 @@
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath; {
-    STTimerHeader* cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"STTimerHeader" forIndexPath:indexPath];
+    UICollectionReusableView* cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"STTimerFooter" forIndexPath:indexPath];
     return cell;
 }
 

@@ -27,8 +27,6 @@
 		E93E168A18D8A9FA00A3CA45 /* STSwimmerDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = E93E168918D8A9FA00A3CA45 /* STSwimmerDetailController.m */; };
 		E97B86CB18D986F100762E04 /* STSwimmerStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E97B86CA18D986F100762E04 /* STSwimmerStore.m */; };
 		E99CBBBF18D22CB500E28866 /* NSArray+map.m in Sources */ = {isa = PBXBuildFile; fileRef = E99CBBBE18D22CB500E28866 /* NSArray+map.m */; };
-		E99CBBC218D30D7800E28866 /* STTimerHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = E99CBBC118D30D7800E28866 /* STTimerHeader.m */; };
-		E9BE6C1718DADC63003D2283 /* STTimerFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BE6C1618DADC63003D2283 /* STTimerFooter.m */; };
 		E9DC64DF18D1E22A0030EEEC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9DC64DE18D1E22A0030EEEC /* Foundation.framework */; };
 		E9DC64E118D1E22A0030EEEC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9DC64E018D1E22A0030EEEC /* CoreGraphics.framework */; };
 		E9DC64E318D1E22A0030EEEC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9DC64E218D1E22A0030EEEC /* UIKit.framework */; };
@@ -79,10 +77,6 @@
 		E97B86CA18D986F100762E04 /* STSwimmerStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSwimmerStore.m; sourceTree = "<group>"; };
 		E99CBBBD18D22CB500E28866 /* NSArray+map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+map.h"; sourceTree = "<group>"; };
 		E99CBBBE18D22CB500E28866 /* NSArray+map.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+map.m"; sourceTree = "<group>"; };
-		E99CBBC018D30D7800E28866 /* STTimerHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTimerHeader.h; sourceTree = "<group>"; };
-		E99CBBC118D30D7800E28866 /* STTimerHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTimerHeader.m; sourceTree = "<group>"; };
-		E9BE6C1518DADC63003D2283 /* STTimerFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTimerFooter.h; sourceTree = "<group>"; };
-		E9BE6C1618DADC63003D2283 /* STTimerFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTimerFooter.m; sourceTree = "<group>"; };
 		E9DC64DB18D1E22A0030EEEC /* SwimTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwimTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9DC64DE18D1E22A0030EEEC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E9DC64E018D1E22A0030EEEC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -265,8 +259,6 @@
 			children = (
 				E9DC651918D1E4DA0030EEEC /* STTimerCell.h */,
 				E9DC651A18D1E4DA0030EEEC /* STTimerCell.m */,
-				E99CBBC018D30D7800E28866 /* STTimerHeader.h */,
-				E99CBBC118D30D7800E28866 /* STTimerHeader.m */,
 				E9F32F0F18D9BB8A00EEA0DE /* STSwimmerNameCell.h */,
 				E9F32F1018D9BB8A00EEA0DE /* STSwimmerNameCell.m */,
 				E9F32F1218D9FA5000EEA0DE /* STSwimmerOverviewCell.h */,
@@ -274,8 +266,6 @@
 				E9F32F1518DA056700EEA0DE /* STSwimmerSelectionCell.h */,
 				E9F32F1618DA056700EEA0DE /* STSwimmerSelectionCell.m */,
 				E9DC64F018D1E22A0030EEEC /* Main.storyboard */,
-				E9BE6C1518DADC63003D2283 /* STTimerFooter.h */,
-				E9BE6C1618DADC63003D2283 /* STTimerFooter.m */,
 			);
 			name = VIew;
 			sourceTree = "<group>";
@@ -468,7 +458,6 @@
 				E9F32F0E18D9B22C00EEA0DE /* STSwimmer.m in Sources */,
 				E9F32F1418D9FA5000EEA0DE /* STSwimmerOverviewCell.m in Sources */,
 				E9F32F0218D9B19300EEA0DE /* Swimmers.xcdatamodeld in Sources */,
-				E9BE6C1718DADC63003D2283 /* STTimerFooter.m in Sources */,
 				E93E168618D89FAE00A3CA45 /* STSwimmerListViewController.m in Sources */,
 				E9DC652218D1EAC90030EEEC /* STTimer.m in Sources */,
 				E9DC64EB18D1E22A0030EEEC /* main.m in Sources */,
@@ -481,7 +470,6 @@
 				E97B86CB18D986F100762E04 /* STSwimmerStore.m in Sources */,
 				E9F32F1118D9BB8A00EEA0DE /* STSwimmerNameCell.m in Sources */,
 				E99CBBBF18D22CB500E28866 /* NSArray+map.m in Sources */,
-				E99CBBC218D30D7800E28866 /* STTimerHeader.m in Sources */,
 				E9F32F0D18D9B22C00EEA0DE /* STRaceResult.m in Sources */,
 				E9DC651B18D1E4DA0030EEEC /* STTimerCell.m in Sources */,
 			);
