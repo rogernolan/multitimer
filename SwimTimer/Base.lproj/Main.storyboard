@@ -215,7 +215,7 @@
         <scene sceneID="Cm9-tC-guQ">
             <objects>
                 <navigationController definesPresentationContext="YES" id="xmd-fG-VNq" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Race" id="olO-Ju-ior"/>
+                    <tabBarItem key="tabBarItem" title="Race" image="flag" id="olO-Ju-ior"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="rHY-qg-qg4">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -399,6 +399,7 @@
     </scenes>
     <resources>
         <image name="clock" width="25" height="25"/>
+        <image name="flag" width="25" height="25"/>
         <image name="swimmer" width="25" height="25"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
