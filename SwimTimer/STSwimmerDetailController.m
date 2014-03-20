@@ -32,7 +32,8 @@
 
 - (void)configureForSwimmer:(STSwimmer*)aSwimmer; {
     self.swimmer = aSwimmer;
-    self.races = [aSwimmer.results sortedArrayUsingDescriptors:@[@"date"]];
+    NSSortDescriptor* sort = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO];
+    self.races = [[aSwimmer valueForKey:@"results"] sortedArrayUsingDescriptors:@[sort]];
 }
 
 - (void)viewDidLoad
