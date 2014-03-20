@@ -26,6 +26,17 @@
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    if(!_stopwatch) {
+        NSMutableArray* names = [NSMutableArray arrayWithCapacity:6];
+        NSString* formatString = NSLocalizedString(@"Timer %d", @"format string for generic timer names");
+        for(int i= 1 ; i <=6 ; i++) {
+            [names addObject:[NSString stringWithFormat:formatString, i]];
+        }
+        self.stopwatch = [STStopWatch StopWatchWithNames:names];
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -44,6 +55,7 @@
 -(void) configureWithStopWatch:(STStopWatch*)aStopwatch;{
     self.stopwatch = aStopwatch;
 }
+
 #pragma mark - Navigation
 //
 //- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
